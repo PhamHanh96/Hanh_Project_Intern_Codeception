@@ -24,4 +24,5 @@ class SchedulePage
     {
         return ['xpath' => "//option[contains(text(), '" . $value . "')]"];
     }
+
 }

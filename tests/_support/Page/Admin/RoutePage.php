@@ -30,9 +30,20 @@ class RoutePage
 
     public static $messageSaveSuccess = 'Thêm thành công tuyến đường';
 
+    public static $messageSaveSuccess1 = 'Cập nhật thành công tuyến đường';
+
+    //public static $messageSaveSuccess2 = 'Chi tiết';
+
 //    public static $quayLaiButton = ['xpath' => './/*[@id=\'page-wrapper\']/div/div/div[3]/a'];
 //
 //    public static $capNhatButton = ['xpath' => './/*[@id=\'page-wrapper\']/div/div/div[2]/div/div/form/div/div[7]/div/input'];
 
+    public static $buttonSearch = ['xpath' => './/*[@id=\'dataTables-example_filter\']/label/input'];
+
+    public static $iconEdit = ['class' => 'btn-default'];
+
+    public static $iconDelete = ['class' => 'btn-danger'];
+
+    public static $iconView = ['class' => 'btn-success'];
 
 }
