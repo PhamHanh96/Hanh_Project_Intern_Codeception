@@ -5,7 +5,8 @@ class RoutePage
 {
     public static $url = '/Admin/ADTuyenDuong';
 
-    public static $buttonNew = ['xpath' => './/*[@id=\'page-wrapper\']/div/div/div[2]/div/div/a'];
+    public static $buttonNew = ['xpath' => './/*[@id=\'page-wrapper\']/div/div/div[2]/div[2]/div/div[1]/div/div/a'];
+
 
 //    public static $editButton = ['class' => 'fa fa-fw fa-edit'];
 //
