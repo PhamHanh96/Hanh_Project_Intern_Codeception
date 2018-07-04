@@ -24,7 +24,7 @@ class UserBookTicketCest
 //
 //    }
 
-    public function Login(UserLoginStep $I)
+    public function _before(UserLoginStep $I)
     {
         $I->wantTo('Login Website');
         $I->Login('hanhhana041096@gmail.com', '123');
@@ -34,7 +34,8 @@ class UserBookTicketCest
     public function UserBookTicket(UserBookTicketStep $I)
     {
         $I->BookTickets('CodeRoute83', '3');
-        //$I->CheckCart();
+        $I->pauseExecution();
+        $I->CheckCart();
     }
 
 }

@@ -22,18 +22,18 @@ class UserBookTicketStep extends \AcceptanceTester
         $I->click(UserBookTicketPage::$buttonBuyTicket);
         $I->fillField(UserBookTicketPage::$numberOfTickets, $numberOfTickets);
         $I->pauseExecution();
-        $I->wait('1');
         $I->click(UserBookTicketPage::$buttonSubmit);
-
         $I->see(UserBookTicketPage::$messageSaveSuccess);
 
     }
 
-    public function CheckCart(\AcceptanceTester $I)
+    public function CheckCart()
     {
+        $I=$this;
         $I->wantTo('I want to check my cart');
         $I->amOnPage(UserBookTicketPage::$URL1);
         $I->click(UserBookTicketPage::$iconCart);
+        $I->pauseExecution();
     }
 
 }

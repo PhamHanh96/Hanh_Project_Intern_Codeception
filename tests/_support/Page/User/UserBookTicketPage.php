@@ -16,7 +16,7 @@ class UserBookTicketPage
 
     public static $numberOfTickets = ['id' => 'soluong'];
 
-    public static $buttonSubmit = ['xpath' => './/*[@id=\'body-top\']/div/div/div[1]/div/form/div/div[8]/button'];
+    public static $buttonSubmit = ['xpath' => './/*[@id=\'body-top\']/div/div/div[1]/div/form/div/div[7]/button'];
 
     public static $messageSaveSuccess = 'Thêm đơn hàng thành công';
 
