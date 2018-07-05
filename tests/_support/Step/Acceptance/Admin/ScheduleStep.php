@@ -23,14 +23,14 @@ class ScheduleStep extends \AcceptanceTester
         $usePage = new SchedulePage();
         $I->waitForElement($usePage->returnChoice($codeRoute), 30);
         $I->click($usePage->returnChoice($codeRoute));
-        $I->pauseExecution();
-        $I->wait(1);
+        //$I->pauseExecution();
+        //$I->wait(1);
 
         $I->click(SchedulePage::$licensePlates);
         $usePage = new SchedulePage();
         $I->waitForElement($usePage->returnChoice($licensePlates));
         $I->click($usePage->returnChoice($licensePlates));
-        $I->pauseExecution();
+        //$I->pauseExecution();
 
         $I->fillField(SchedulePage::$dayStart, $dayStart);
         //$I->pauseExecution();

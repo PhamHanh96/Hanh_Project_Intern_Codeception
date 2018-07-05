@@ -36,7 +36,7 @@ class RouteStep extends \AcceptanceTester
         $I->wantTo('Search Route!');
         $I->amOnPage(RoutePage::$url);
         $I->searchRoute($codeRoute);
-        $I->pauseExecution();
+        //$I->pauseExecution();
         $I->click(RoutePage::$iconEdit);
         $I->fillField(RoutePage::$whereTo, $whereTo);
         $I->fillField(RoutePage::$whereStart, $whereStart);
@@ -57,19 +57,31 @@ class RouteStep extends \AcceptanceTester
         $I->searchRoute($codeRoute);
         $I->click(RoutePage::$iconDelete);
 
-    }
-
-    public function viewRoute($codeRoute)
-    {
-        $I = $this;
-        $I->wantTo('View Route!');
-        $I->amOnPage(RoutePage::$url);
-        $I->searchRoute($codeRoute);
-       // $I->pauseExecution();
-        $I->click(RoutePage::$iconView);
-        $I->see('Chi tiết ' .$codeRoute);
+//        $I->click(RoutePage::$iconDelete);
+//        $I->wantTo('Test with delete Route but then cancel');
+//        $I->click(RoutePage::$buttonCancle);
+//        $I->pauseExecution();
+//
+//        $I->click(RoutePage::$iconDelete);
+//        $I->wantTo('Test with delete Route then accept');
+        $I->click(RoutePage::$buttonContinue);
+        //$I->wait('1');
         $I->pauseExecution();
 
+
     }
+
+//    public function viewRoute($codeRoute)
+//    {
+//        $I = $this;
+//        $I->wantTo('View Route!');
+//        $I->amOnPage(RoutePage::$url);
+//        $I->searchRoute($codeRoute);
+//       // $I->pauseExecution();
+//        $I->click(RoutePage::$iconView);
+//        //$I->see('Chi tiết ' .$codeRoute);
+//        $I->pauseExecution();
+//
+//    }
 
 }

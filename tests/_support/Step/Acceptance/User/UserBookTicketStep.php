@@ -16,15 +16,15 @@ class UserBookTicketStep extends \AcceptanceTester
         $I->amOnPage(UserBookTicketPage::$URL1);
         $I->click(UserBookTicketPage::$buttonSchedule);
         $I->fillField(UserBookTicketPage::$searchFile, $codeRoute);
-        $I->pauseExecution();
+        //$I->pauseExecution();
         $I->click(UserBookTicketPage::$buttonSearch);
-        $I->pauseExecution();
+        //$I->pauseExecution();
         $I->click(UserBookTicketPage::$buttonBuyTicket);
         $I->fillField(UserBookTicketPage::$numberOfTickets, $numberOfTickets);
-        $I->pauseExecution();
+        //$I->pauseExecution();
         $I->click(UserBookTicketPage::$buttonSubmit);
         $I->see(UserBookTicketPage::$messageSaveSuccess);
-
+        $I->pauseExecution();
     }
 
     public function CheckCart()

@@ -6,7 +6,7 @@ class UserInformationPage
     // include url of current page
     public static $URL = '/';
 
-    public static $buttonCustomer = ['xpath' => './/*[@id=\'top-nav\']/div/ul/li[5]'];
+    public static $buttonCustomer = ['xpath' => '//a[contains(@href, \'/KhachHang/Edit\')]'];
 
     public static $messageNotification = 'SỬA THÔNG TIN CÁ NHÂN';
 
@@ -22,11 +22,11 @@ class UserInformationPage
 
     public static $confirmPassword = ['id' => 'CONFIRM_PASS'];
 
-    public static $buttonUpdate = ['xpath' => './/*[@id=\'body-top\']/div/div/div[2]/div[1]/div/form/div/div[8]/div/input'];
+    public static $buttonUpdate = ['xpath' => '//input[contains(@class, \'btn-primary\')]'];
 
     public static $messageSaveSuccess = 'CẬP NHẬT THÀNH CÔNG KHÁCH HÀNG';
 
-    public static $buttonInformation = ['xpath' => './/*[@id=\'br-cover-content\']/div[2]/nav/div/ul/li[3]/a'];
+    public static $buttonInformation = ['xpath' => '//a[contains(@href, \'/Home/ThongTinKhachHang\')]'];
 
 
 }

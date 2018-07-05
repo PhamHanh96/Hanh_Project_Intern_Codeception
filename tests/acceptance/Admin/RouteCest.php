@@ -44,13 +44,13 @@ class RouteCest
         $I->editRoute( $this->randomCodeRoute,$this->randomWhereTo, $this->randomWhereStart, $this->randomLength,$this->randomTime, $this->randomPrice);
     }
 
-//    public function deleteRoute(routeStep $I)
-//    {
-//        $I->deleteRoute('CodeRoute870');
-//    }
+    public function deleteRoute(routeStep $I)
+{
+    $I->deleteRoute($this->randomCodeRoute);
+}
 
 //    public function viewRoute(routeStep $I)
 //    {
-//        $I->viewRoute('DAKLAK-HANOI ');
+//        $I->viewRoute('CodeRoute288');
 //    }
 }

@@ -6,13 +6,13 @@ class BusPage
     // include url of current page
     public static $URL = '/Admin/ADXeKhach';
 
-    public static $buttonNew = ['xpath' => './/*[@id=\'page-wrapper\']/div/div/div[2]/div/div/a'];
+    public static $buttonNew = ['xpath' => '//a[contains(@class, \'btn-primary\')]'];
 
     public static $licensePlates = ['id' => 'MA_BSX'];
 
     public static $seats = ['id' => 'SOCHO'];
 
-    public static $buttonAddNew = ['xpath' => './/*[@id=\'page-wrapper\']/div/div/form/div/div[3]/div/input'];
+    public static $buttonAddNew = ['xpath' => '//input[contains(@class, \'btn-default\')]'];
 
     public static $messageSaveSuccess = 'Thêm thành công xe khách';
 

@@ -6,7 +6,7 @@ class RegisterPage
     // include url of current page
     public static $URL = '/';
 
-    public static $buttonRegister = ['xpath' => './/*[@id=\'top-nav\']/div/ul/li[4]/a'];
+    public static $buttonRegister = ['xpath' => '//a[contains(@href, \'/KhachHang/Create\')]'];
 
     public static $username = ['id' => 'TEN_KH'];
 
@@ -22,7 +22,7 @@ class RegisterPage
 
     public static $confirmPassword = ['id' => 'CONFIRM_PASS'];
 
-    public static $buttonSubmitRegister = ['xpath' => './/*[@id=\'body-top\']/div/div/div[1]/div/form/div/div[8]/div/input'];
+    public static $buttonSubmitRegister = ['xpath' => '//input[contains(@class, \'btn-primary\')]'];
 
     public static $messageSaveSuccess = 'Đăng kí thành công';
 

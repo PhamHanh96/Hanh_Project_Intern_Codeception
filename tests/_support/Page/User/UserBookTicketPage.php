@@ -8,19 +8,19 @@ class UserBookTicketPage
 
     public static $buttonSchedule = ['xpath' => './/*[@id=\'br-cover-content\']/div[2]/nav/div/ul/li[1]/a'];
 
-    public static $searchFile = ['class' => 'form-control'];
+    public static $searchFile = ['xpath' => '//input[contains(@class, \'pull-right\')]'];
 
-    public static $buttonSearch = ['xpath' => './/*[@id=\'body-content\']/div/form/div/div/button'];
+    public static $buttonSearch = ['xpath' => '//button[contains(@class, \' btn-default\')]'];
 
-    public static $buttonBuyTicket = ['xpath' => './/*[@id=\'body-content\']/div/div/div[1]/table/tbody/tr/td[7]/a'];
+    public static $buttonBuyTicket = ['xpath' => '//a[contains(@class, \' futa-book-ticket\')]'];
 
     public static $numberOfTickets = ['id' => 'soluong'];
 
-    public static $buttonSubmit = ['xpath' => './/*[@id=\'body-top\']/div/div/div[1]/div/form/div/div[7]/button'];
+    public static $buttonSubmit = ['xpath' => '//button[contains(@class, \' pull-right\')]'];
 
-    public static $messageSaveSuccess = 'Thêm đơn hàng thành công';
+    public static $messageSaveSuccess = 'Them Don hang thanh cong';
 
-    public static $iconCart = ['xpath' => './/*[@id=\'top-nav\']/div/ul/li[1]/a'];
+    public static $iconCart = ['xpath' => '//i[contains(@class, \' fa-shopping-cart\')]'];
 
 
 

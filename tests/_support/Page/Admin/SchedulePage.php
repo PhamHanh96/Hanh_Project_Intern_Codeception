@@ -6,7 +6,7 @@ class SchedulePage
 
     public static $url = '/Admin/ADLoTrinh';
 
-    public static $buttonNew = ['xpath' => './/*[@id=\'page-wrapper\']/div/div/div[2]/div/div[1]/a'];
+    public static $buttonNew = ['xpath' => '//a[contains(@class, \'btn-primary\')]'];
 
     public static $codeRoute = ['id' => 'MS_TUYEN'];
 
@@ -16,7 +16,7 @@ class SchedulePage
 
     public static $Time = ['id' => 'GIO'];
 
-    public static $buttonAddNew = ['xpath' => './/*[@id=\'page-wrapper\']/div/div/form/div/div[5]/div/input'];
+    public static $buttonAddNew = ['xpath' => '//input[contains(@class, \'btn-default\')]'];
 
     public static $messageSaveSuccess = 'Thêm thành công lộ trình';
 

@@ -14,7 +14,7 @@ class AdminLoginStep extends \AcceptanceTester
         $I->fillField(AdminLoginPage::$password, $pass);
         //click on Login button
         $I->click(AdminLoginPage::$loginButton);
-        $I->pauseExecution();
+        //$I->pauseExecution();
 
     }
 
