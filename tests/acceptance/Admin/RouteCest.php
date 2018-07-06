@@ -39,13 +39,14 @@ class RouteCest
         $I->addRoute( $this->randomCodeRoute, $this->randomWhereTo, $this->randomWhereStart, $this->randomLength, $this->randomTime, $this->randomPrice);
     }
 
-    public function editRoute(routeStep $I)
-    {
-        $I->editRoute( $this->randomCodeRoute,$this->randomWhereTo, $this->randomWhereStart, $this->randomLength,$this->randomTime, $this->randomPrice);
-    }
+//    public function editRoute(routeStep $I)
+//    {
+//        $I->editRoute( $this->randomCodeRoute,$this->randomWhereTo, $this->randomWhereStart, $this->randomLength,$this->randomTime, $this->randomPrice);
+//    }
 
     public function deleteRoute(routeStep $I)
 {
+    $I->wantTo('Delete this Route!');
     $I->deleteRoute($this->randomCodeRoute);
 }
 

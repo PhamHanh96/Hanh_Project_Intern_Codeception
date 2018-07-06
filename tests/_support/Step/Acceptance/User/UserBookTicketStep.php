@@ -33,7 +33,7 @@ class UserBookTicketStep extends \AcceptanceTester
         $I->wantTo('I want to check my cart');
         $I->amOnPage(UserBookTicketPage::$URL1);
         $I->click(UserBookTicketPage::$iconCart);
-        $I->pauseExecution();
+       // $I->pauseExecution();
     }
 
 }

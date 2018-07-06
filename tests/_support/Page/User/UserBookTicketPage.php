@@ -20,7 +20,7 @@ class UserBookTicketPage
 
     public static $messageSaveSuccess = 'Them Don hang thanh cong';
 
-    public static $iconCart = ['xpath' => '//i[contains(@class, \' fa-shopping-cart\')]'];
+    public static $iconCart = ['xpath' => '//a[contains(@href, \'/HoaDon\')]'];
 
 
 

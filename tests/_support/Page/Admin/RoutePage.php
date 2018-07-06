@@ -46,7 +46,7 @@ class RoutePage
 
     public static $iconEdit = ['class' => 'btn-default'];
 
-    public static $iconDelete = ['class' => 'btn-danger'];
+    public static $iconDelete = ['xpath' => '//a[contains(@class, \' btn-danger\')]'];
 
     public static $iconView = ['class' => 'btn-success'];
 

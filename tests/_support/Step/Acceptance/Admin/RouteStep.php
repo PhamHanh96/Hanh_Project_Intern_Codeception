@@ -65,7 +65,8 @@ class RouteStep extends \AcceptanceTester
 //        $I->click(RoutePage::$iconDelete);
 //        $I->wantTo('Test with delete Route then accept');
         $I->click(RoutePage::$buttonContinue);
-        //$I->wait('1');
+        //$I->dontSee(RoutePage::$codeRoute);
+        $I->wait('1');
         $I->pauseExecution();
 
 
