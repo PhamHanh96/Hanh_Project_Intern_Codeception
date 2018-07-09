@@ -1,5 +1,6 @@
 <?php
 namespace Step\Acceptance\Admin;
+use \Step\Acceptance;
 use Page\Admin\RoutePage as RoutePage;
 
 class RouteStep extends \AcceptanceTester
@@ -26,7 +27,7 @@ class RouteStep extends \AcceptanceTester
     {
         $I = $this;
         $I->wantTo('Search Route!');
-        $I->amOnPage(RoutePage::$url);
+        //$I->amOnPage(RoutePage::$url);
         $I->fillField(RoutePage::$buttonSearch, $codeRoute);
     }
 
@@ -55,19 +56,22 @@ class RouteStep extends \AcceptanceTester
         $I->wantTo('Delete Route!');
         $I->amOnPage(RoutePage::$url);
         $I->searchRoute($codeRoute);
-        $I->click(RoutePage::$iconDelete);
-
-//        $I->click(RoutePage::$iconDelete);
-//        $I->wantTo('Test with delete Route but then cancel');
-//        $I->click(RoutePage::$buttonCancle);
-//        $I->pauseExecution();
-//
-//        $I->click(RoutePage::$iconDelete);
-//        $I->wantTo('Test with delete Route then accept');
-        $I->click(RoutePage::$buttonContinue);
-        //$I->dontSee(RoutePage::$codeRoute);
-        $I->wait('1');
         $I->pauseExecution();
+        $I->click(RoutePage::$iconDelete);
+        //$I->see(RoutePage::$messageDelete);
+
+        $I->wantTo('Test with delete route but then cancel');
+        $I->waitForElement(RoutePage::$buttonContinue,30);
+
+
+        $I->wantTo('Test with delete route then accept');
+       // $I->pauseExecution();
+        $I->click(RoutePage::$buttonContinue);
+        //$I->pauseExecution();
+        $I->acceptPopup();
+//        $I->click(RoutePage::$buttonContinue);
+       // $I->waitForText(RoutePage::$messageDeleteSuccess, 60);
+        $I->dontSee($codeRoute);
 
 
     }

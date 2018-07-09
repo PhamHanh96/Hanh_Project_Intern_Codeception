@@ -32,15 +32,9 @@ class RoutePage
 
     public static $messageSaveSuccess1 = 'Cập nhật thành công tuyến đường';
 
-    public static $messageDelete = 'Bạn có muốn xóa mục này không? ';
+    public static $messageDelete = 'Bạn có muốn xóa mục này không?';
 
     public static $messageDeleteSuccess = 'Xóa thành công!';
-
-    //public static $messageSaveSuccess2 = 'Chi tiết';
-
-//    public static $quayLaiButton = ['xpath' => './/*[@id=\'page-wrapper\']/div/div/div[3]/a'];
-//
-//    public static $capNhatButton = ['xpath' => './/*[@id=\'page-wrapper\']/div/div/div[2]/div/div/form/div/div[7]/div/input'];
 
     public static $buttonSearch = ['xpath' => '//input[contains(@class, \' input-sm\')]'];
 
@@ -54,6 +48,6 @@ class RoutePage
 
     public static $buttonContinue = ['xpath' => '//button[contains(@class, \'btn-primary\')]'];
 
-
+   // public static $selectorSuccess = ".alert-success";
 
 }

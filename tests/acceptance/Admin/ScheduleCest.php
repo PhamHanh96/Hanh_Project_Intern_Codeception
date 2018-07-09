@@ -2,6 +2,7 @@
 
 use Step\Acceptance\Admin\ScheduleStep as ScheduleStep;
 use Step\Acceptance\Admin\BusStep as BusStep;
+use Step\Acceptance\Admin\RouteStep as RouteStep;
 use Step\Acceptance\Admin\AdminLoginStep as AdminLoginStep;
 
 class ScheduleCest
@@ -32,14 +33,14 @@ class ScheduleCest
     public function testRoute(AcceptanceTester $I, $scenario)
     {
 
-        $I = new \Step\Acceptance\Admin\RouteStep($scenario);
+        $I = new RouteStep($scenario);
         $I->wantTo('Create new Route!');
         $I->addRoute( $this->randomCodeRoute, $this->randomWhereTo, $this->randomWhereStart, $this->randomLength, $this->randomTime, $this->randomPrice);
     }
 
     public function testBus(AcceptanceTester $I, $scenario)
     {
-        $I = new \Step\Acceptance\Admin\BusStep($scenario);
+        $I = new BusStep($scenario);
         $I->wantTo('Create new Bus!');
         $I->addBus($this->randomLicensePlates, $this->randomSeats);
     }

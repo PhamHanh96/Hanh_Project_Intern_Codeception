@@ -19,12 +19,14 @@ class ScheduleStep extends \AcceptanceTester
         $I->amOnPage(SchedulePage::$url);
 
         $I->click(SchedulePage::$buttonNew);
+        $I->pauseExecution();
+        $I->waitForElement(SchedulePage::$codeRoute, 30);
         $I->click(SchedulePage::$codeRoute);
         $usePage = new SchedulePage();
         $I->waitForElement($usePage->returnChoice($codeRoute), 30);
         $I->click($usePage->returnChoice($codeRoute));
         //$I->pauseExecution();
-        //$I->wait(1);
+        $I->wait(1);
 
         $I->click(SchedulePage::$licensePlates);
         $usePage = new SchedulePage();
@@ -43,7 +45,7 @@ class ScheduleStep extends \AcceptanceTester
 
         $I->click(SchedulePage::$buttonAddNew);
         $I->see(SchedulePage::$messageSaveSuccess);
-        $I->pauseExecution();
+       //$I->pauseExecution();
 
     }
 
