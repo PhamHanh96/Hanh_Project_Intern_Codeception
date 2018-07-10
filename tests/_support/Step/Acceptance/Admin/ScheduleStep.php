@@ -17,7 +17,6 @@ class ScheduleStep extends \AcceptanceTester
         $I = $this;
         $I->wantTo('Creat new Schedule');
         $I->amOnPage(SchedulePage::$url);
-
         $I->click(SchedulePage::$buttonNew);
         $I->pauseExecution();
         $I->waitForElement(SchedulePage::$codeRoute, 30);
@@ -25,27 +24,47 @@ class ScheduleStep extends \AcceptanceTester
         $usePage = new SchedulePage();
         $I->waitForElement($usePage->returnChoice($codeRoute), 30);
         $I->click($usePage->returnChoice($codeRoute));
-        //$I->pauseExecution();
         $I->wait(1);
-
         $I->click(SchedulePage::$licensePlates);
         $usePage = new SchedulePage();
         $I->waitForElement($usePage->returnChoice($licensePlates));
         $I->click($usePage->returnChoice($licensePlates));
-        //$I->pauseExecution();
-
         $I->fillField(SchedulePage::$dayStart, $dayStart);
-        //$I->pauseExecution();
-
         $I->click(SchedulePage::$Time);
         $usePage = new SchedulePage();
         $I->waitForElement($usePage->returnChoice($Time));
         $I->click($usePage->returnChoice($Time));
-        //$I->pauseExecution();
-
         $I->click(SchedulePage::$buttonAddNew);
         $I->see(SchedulePage::$messageSaveSuccess);
-       //$I->pauseExecution();
+
+    }
+
+    public function searchSchedule($codeRoute)
+    {
+        $I = $this;
+        $I->wantTo('Search Schedule!');
+        $I->fillField(SchedulePage::$buttonSearch, $codeRoute);
+    }
+
+
+    public function deleteSchedule($codeRoute)
+    {
+        $I = $this;
+        $I->wantTo('Delete Schedule!');
+        $I->amOnPage(SchedulePage::$url);
+        $I->searchSchedule($codeRoute);
+
+        $I->click(SchedulePage::$iconDelete);
+        $I->wantTo('Test with delete schedule but then cancel');
+        $I->waitForElement(SchedulePage::$buttonCancle,30);
+        $I->click(SchedulePage::$buttonCancle);
+        $I->wait('1');
+
+        $I->click(SchedulePage::$iconDelete);
+        $I->waitForElement(SchedulePage::$buttonContinue,30);
+        $I->wantTo('Test with delete schedule then accept');
+        $I->click(SchedulePage::$buttonContinue);
+        $I->acceptPopup();
 
     }
 

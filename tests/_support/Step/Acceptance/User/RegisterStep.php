@@ -20,8 +20,6 @@ class RegisterStep extends \AcceptanceTester
         $I->fillField(RegisterPage::$confirmPassword, $confirmPassword);
         $I->click(RegisterPage::$buttonSubmitRegister);
         $I->see(RegisterPage::$messageSaveSuccess);
-        $I->pauseExecution();
-
     }
 
 }

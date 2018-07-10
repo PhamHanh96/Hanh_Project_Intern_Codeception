@@ -42,12 +42,10 @@ class RoutePage
 
     public static $iconDelete = ['xpath' => '//a[contains(@class, \' btn-danger\')]'];
 
-    public static $iconView = ['class' => 'btn-success'];
-
     public static $buttonCancle = ['xpath' => '//button[contains(@class, \'btn-default\')]'];
 
     public static $buttonContinue = ['xpath' => '//button[contains(@class, \'btn-primary\')]'];
 
-   // public static $selectorSuccess = ".alert-success";
+
 
 }

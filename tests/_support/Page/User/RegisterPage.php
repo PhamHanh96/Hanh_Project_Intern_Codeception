@@ -26,6 +26,4 @@ class RegisterPage
 
     public static $messageSaveSuccess = 'Đăng kí thành công';
 
-
-
 }

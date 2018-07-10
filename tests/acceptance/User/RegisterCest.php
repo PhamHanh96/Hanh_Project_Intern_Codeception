@@ -12,11 +12,9 @@ class RegisterCest
         $this->randomAddress            = 'ADC' .random_int(100,999);
         $this->randomPassword           = 'admin123';
         $this->randomConfirmPassword    = 'admin123';
-
     }
     public function register(RegisterStep $I)
     {
         $I->register($this->randomUsername, $this->randomEmail, $this->randomPhoneNumber, $this->randomIdCustomer, $this->randomAddress, $this->randomPassword, $this->randomConfirmPassword);
-
     }
 }

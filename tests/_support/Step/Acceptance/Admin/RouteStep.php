@@ -20,14 +20,12 @@ class RouteStep extends \AcceptanceTester
         $I->fillField(RoutePage::$price, $price);
         $I->click(RoutePage::$buttonAddNew);
         $I->see(RoutePage::$messageSaveSuccess);
-        $I->pauseExecution();
     }
 
     public function searchRoute($codeRoute)
     {
         $I = $this;
         $I->wantTo('Search Route!');
-        //$I->amOnPage(RoutePage::$url);
         $I->fillField(RoutePage::$buttonSearch, $codeRoute);
     }
 
@@ -37,7 +35,6 @@ class RouteStep extends \AcceptanceTester
         $I->wantTo('Search Route!');
         $I->amOnPage(RoutePage::$url);
         $I->searchRoute($codeRoute);
-        //$I->pauseExecution();
         $I->click(RoutePage::$iconEdit);
         $I->fillField(RoutePage::$whereTo, $whereTo);
         $I->fillField(RoutePage::$whereStart, $whereStart);
@@ -46,8 +43,6 @@ class RouteStep extends \AcceptanceTester
         $I->fillField(RoutePage::$price, $price);
         $I->click(RoutePage::$buttonAddNew);
         $I->see(RoutePage::$messageSaveSuccess1);
-        $I->pauseExecution();
-
     }
 
     public function deleteRoute($codeRoute)
@@ -56,37 +51,15 @@ class RouteStep extends \AcceptanceTester
         $I->wantTo('Delete Route!');
         $I->amOnPage(RoutePage::$url);
         $I->searchRoute($codeRoute);
-        $I->pauseExecution();
         $I->click(RoutePage::$iconDelete);
-        //$I->see(RoutePage::$messageDelete);
 
         $I->wantTo('Test with delete route but then cancel');
         $I->waitForElement(RoutePage::$buttonContinue,30);
 
-
         $I->wantTo('Test with delete route then accept');
-       // $I->pauseExecution();
         $I->click(RoutePage::$buttonContinue);
-        //$I->pauseExecution();
         $I->acceptPopup();
-//        $I->click(RoutePage::$buttonContinue);
-       // $I->waitForText(RoutePage::$messageDeleteSuccess, 60);
         $I->dontSee($codeRoute);
-
-
     }
-
-//    public function viewRoute($codeRoute)
-//    {
-//        $I = $this;
-//        $I->wantTo('View Route!');
-//        $I->amOnPage(RoutePage::$url);
-//        $I->searchRoute($codeRoute);
-//       // $I->pauseExecution();
-//        $I->click(RoutePage::$iconView);
-//        //$I->see('Chi tiết ' .$codeRoute);
-//        $I->pauseExecution();
-//
-//    }
 
 }

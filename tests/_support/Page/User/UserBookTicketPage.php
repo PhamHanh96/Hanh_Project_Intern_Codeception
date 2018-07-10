@@ -3,7 +3,6 @@ namespace Page\User;
 
 class UserBookTicketPage
 {
-
     public static $URL1 = '/';
 
     public static $buttonSchedule = ['xpath' => './/*[@id=\'br-cover-content\']/div[2]/nav/div/ul/li[1]/a'];
@@ -21,7 +20,5 @@ class UserBookTicketPage
     public static $messageSaveSuccess = 'Them Don hang thanh cong';
 
     public static $iconCart = ['xpath' => '//a[contains(@href, \'/HoaDon\')]'];
-
-
 
 }

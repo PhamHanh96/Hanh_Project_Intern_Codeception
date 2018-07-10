@@ -14,6 +14,4 @@ class UserLoginPage
 
     public static $buttonSubmitLogin = ['xpath' => '//button[contains(@class, \'pull-right\')]'];
 
-
-
 }

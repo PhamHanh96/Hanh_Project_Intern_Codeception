@@ -10,8 +10,8 @@ class ScheduleCest
     public function __construct()
     {
         $this->fake                 = Faker\Factory::create();
-        $this->username             = \Page\Admin\AdminLoginPage::$usernameValue;
-        $this->password             = \Page\Admin\AdminLoginPage::$passwordValue;
+        $this->username             = 'nguyentrang0912@gmail.com';
+        $this->password             = '123';
         $this->randomCodeRoute      = 'CodeRoute' .rand(1,999);
         $this->randomWhereTo        = 'WhereTo' .rand(1,999);
         $this->randomWhereStart     = 'WhereStart' .rand(1,999);
@@ -21,9 +21,7 @@ class ScheduleCest
         $this->randomLicensePlates  = '51A-' .random_int(1111,99999);
         $this->randomSeats          = rand(16,60);
         $this->searchDayStart       = '2018-08-15';
-        $this->searchTime           = '8:00';
-
-
+        $this->searchTime           = '12:00';
     }
     public function _before(AdminLoginStep $I)
     {
@@ -32,7 +30,6 @@ class ScheduleCest
 
     public function testRoute(AcceptanceTester $I, $scenario)
     {
-
         $I = new RouteStep($scenario);
         $I->wantTo('Create new Route!');
         $I->addRoute( $this->randomCodeRoute, $this->randomWhereTo, $this->randomWhereStart, $this->randomLength, $this->randomTime, $this->randomPrice);
@@ -53,8 +50,16 @@ class ScheduleCest
      */
     public function createSchedule(ScheduleStep $I, $scenario)
     {
-        $I = new  ScheduleStep($scenario);
+        $I = new ScheduleStep($scenario);
+        $I->wantTo('Create new schedule!');
         $I->addSchedule($this->randomCodeRoute, $this->randomLicensePlates, $this->searchDayStart, $this->searchTime);
+    }
+
+    public function deleteSchedule(AcceptanceTester $I, $scenario)
+    {
+        $I = new ScheduleStep($scenario);
+        $I->wantTo('Delete this Schedule!');
+        $I->deleteSchedule($this->randomCodeRoute);
     }
 
 }

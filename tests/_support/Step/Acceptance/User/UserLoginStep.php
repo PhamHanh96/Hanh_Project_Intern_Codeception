@@ -14,7 +14,6 @@ class UserLoginStep extends \AcceptanceTester
         $I->fillField(UserLoginPage::$email, $email);
         $I->fillField(UserLoginPage::$password, $password);
         $I->click(UserLoginPage::$buttonSubmitLogin);
-        $I->pauseExecution();
     }
 
 }

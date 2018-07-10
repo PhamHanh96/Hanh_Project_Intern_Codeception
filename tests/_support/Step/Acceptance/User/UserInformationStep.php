@@ -18,8 +18,6 @@ class UserInformationStep extends \AcceptanceTester
         $I->fillField(UserInformationPage::$password, $password);
         $I->fillField(UserInformationPage::$confirmPassword, $confirmPassword);
         $I->click(UserInformationPage::$buttonUpdate);
-        $I->pauseExecution();
-
     }
 
     public function ViewInformation()
@@ -28,7 +26,6 @@ class UserInformationStep extends \AcceptanceTester
         $I->wantTo('View my information!');
         $I->amOnPage(UserInformationPage::$URL);
         $I->click(UserInformationPage::$buttonInformation);
-        $I->pauseExecution();
     }
 
 }

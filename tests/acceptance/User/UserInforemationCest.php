@@ -14,7 +14,6 @@ class UserInforemationCest
         $this->randomAddress            = 'ADC' .random_int(100,999);
         $this->randomPassword           = '123';
         $this->randomConfirmPassword    = '123';
-
     }
 
     public function _before(UserLoginStep $I)
@@ -26,7 +25,6 @@ class UserInforemationCest
     public function UserInformation(UserInformationStep $I)
     {
         $I->EditInformation($this->randomUsername, $this->randomPhoneNumber, $this->randomIdCustomer, $this->randomAddress, $this->randomPassword, $this->randomConfirmPassword);
-        $I->pauseExecution();
         $I->ViewInformation();
     }
 
