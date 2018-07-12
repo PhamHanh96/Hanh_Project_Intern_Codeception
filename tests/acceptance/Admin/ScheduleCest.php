@@ -20,10 +20,10 @@ class ScheduleCest
         $this->randomPrice          = rand(30000,1000000);
         $this->randomLicensePlates  = $this->faker->bothify('##?-####');
         $this->randomSeats          = rand(16,60);
-        $this->searchDayStart       = $this->faker->date($format = 'Y-m-d', $min = 'now');
-        $this->searchDayStartEdit   = $this->faker->date($format = 'Y-m-d', $min = 'now');;
-        $this->searchTime           = '12:00';
-        $this->searchTimeEdit       = '20:00';
+        $this->searchDayStart       = "2018-08-08";
+        $this->searchDayStartEdit   = "2018-09-09";
+        $this->searchTime           = "12:00";
+        $this->searchTimeEdit       = "20:00";
     }
     public function _before(AdminLoginStep $I)
     {
@@ -56,19 +56,19 @@ class ScheduleCest
         $I->wantTo('Create new schedule!');
         $I->addSchedule($this->randomCodeRoute, $this->randomLicensePlates, $this->searchDayStart, $this->searchTime);
     }
-
+//
 //    public function editSchedule(AcceptanceTester $I, $scenario)
 //    {
 //        $I = new ScheduleStep($scenario);
 //        $I->wantTo('Edit this Schedule!');
 //        $I->editSchedule($this->randomCodeRoute, $this->searchDayStartEdit, $this->searchTimeEdit);
 //    }
-//
-//    public function deleteSchedule(AcceptanceTester $I, $scenario)
-//    {
-//        $I = new ScheduleStep($scenario);
-//        $I->wantTo('Delete this Schedule!');
-//        $I->deleteSchedule($this->randomCodeRoute);
-//    }
+
+    public function deleteSchedule(AcceptanceTester $I, $scenario)
+    {
+        $I = new ScheduleStep($scenario);
+        $I->wantTo('Delete this Schedule!');
+        $I->deleteSchedule($this->randomCodeRoute);
+    }
 
 }

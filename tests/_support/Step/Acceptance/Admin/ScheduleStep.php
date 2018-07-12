@@ -18,13 +18,13 @@ class ScheduleStep extends \AcceptanceTester
         $I->wantTo('Creat new Schedule');
         $I->amOnPage(SchedulePage::$url);
         $I->click(SchedulePage::$buttonNew);
-        $I->pauseExecution();
         $I->waitForElement(SchedulePage::$codeRoute, 30);
         $I->click(SchedulePage::$codeRoute);
         $usePage = new SchedulePage();
         $I->waitForElement($usePage->returnChoice($codeRoute), 30);
         $I->click($usePage->returnChoice($codeRoute));
-        $I->wait(1);
+
+        $I->waitForElement(SchedulePage::$licensePlates, 30);
         $I->click(SchedulePage::$licensePlates);
         $usePage = new SchedulePage();
         $I->waitForElement($usePage->returnChoice($licensePlates));
@@ -34,6 +34,7 @@ class ScheduleStep extends \AcceptanceTester
         $usePage = new SchedulePage();
         $I->waitForElement($usePage->returnChoice($Time));
         $I->click($usePage->returnChoice($Time));
+        $I->wait('1');
         $I->click(SchedulePage::$buttonAddNew);
         $I->see(SchedulePage::$messageSaveSuccess);
 
@@ -46,35 +47,34 @@ class ScheduleStep extends \AcceptanceTester
         $I->fillField(SchedulePage::$buttonSearch, $codeRoute);
     }
 
-    public function editSchedule($codeRoute, $dayStartEdit, $TimeEdit)
+    /**
+     * @param $codeRoute
+     * @param $dayStart
+     * @param $Time
+     * @throws \Exception
+     */
+    public function editSchedule($codeRoute, $dayStart, $Time)
     {
         $I = $this;
         $I->wantTo('Edit Schedule!');
         $I->amOnPage(SchedulePage::$url);
         $I->searchSchedule($codeRoute);
         $I->click(SchedulePage::$iconEdit);
-//        $I->pauseExecution();
-//        $I->waitForElement(SchedulePage::$codeRoute, 30);
-//        $I->click(SchedulePage::$codeRoute);
-//        $usePage = new SchedulePage();
-//        $I->waitForElement($usePage->returnChoice($codeRouteEdit), 30);
-//        $I->click($usePage->returnChoice($codeRouteEdit));
-        $I->wait(1);
-//        $I->click(SchedulePage::$licensePlates);
-//        $usePage = new SchedulePage();
-//        $I->waitForElement($usePage->returnChoice($licensePlatesEdit));
-//        $I->click($usePage->returnChoice($licensePlatesEdit));
-        $I->fillField(SchedulePage::$dayStart, $dayStartEdit);
+        $I->wait('1');
+        $I->fillField(SchedulePage::$dayStart, $dayStart);
         $I->click(SchedulePage::$Time);
         $usePage = new SchedulePage();
-        $I->waitForElement($usePage->returnChoice($TimeEdit));
-        $I->click($usePage->returnChoice($TimeEdit));
+        $I->waitForElement($usePage->returnChoice($Time));
+        $I->click($usePage->returnChoice($Time));
         $I->click(SchedulePage::$buttonAddNew);
         $I->see(SchedulePage::$messageSaveSuccess1);
 
     }
 
-
+    /**
+     * @param $codeRoute
+     * @throws \Exception
+     */
     public function deleteSchedule($codeRoute)
     {
         $I = $this;
@@ -84,16 +84,15 @@ class ScheduleStep extends \AcceptanceTester
 
         $I->click(SchedulePage::$iconDelete);
         $I->wantTo('Test with delete schedule but then cancel');
-        $I->waitForElement(SchedulePage::$buttonCancle,30);
+        $I->waitForElementVisible(SchedulePage::$buttonCancle,30);
         $I->click(SchedulePage::$buttonCancle);
         $I->wait('1');
 
         $I->click(SchedulePage::$iconDelete);
-        $I->waitForElement(SchedulePage::$buttonContinue,30);
+        $I->waitForElementVisible(SchedulePage::$buttonContinue,30);
         $I->wantTo('Test with delete schedule then accept');
         $I->click(SchedulePage::$buttonContinue);
+        $I->wait(1);
         $I->acceptPopup();
-
     }
-
 }

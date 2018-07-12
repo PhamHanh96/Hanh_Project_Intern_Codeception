@@ -16,7 +16,7 @@ modules:
     enabled:
         - WebDriver:
             url : 'http://localhost:55656'
-            browser: firefox
+            browser: chrome
            # use selnium version 3.5.1 not the latest one that is 3.9.1
             window_size: false
             javascript : false

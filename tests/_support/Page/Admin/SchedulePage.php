@@ -8,7 +8,7 @@ class SchedulePage
 
     public static $buttonNew = ['xpath' => '//a[contains(@class, \'btn-primary\')]'];
 
-    public static $codeRoute = ['id' => 'MS_TUYEN'];
+    public static $codeRoute = ['id' => "MS_TUYEN"];
 
     public static $licensePlates = ['id' => 'BSXE'];
 
