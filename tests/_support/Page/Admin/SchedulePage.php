@@ -30,7 +30,7 @@ class SchedulePage
 
     public static $messageSaveSuccess = 'Thêm thành công lộ trình';
 
-    public static $messageSaveSuccess1 = 'Cập nhật thành công lộ trình';
+    public static $messageSaveSuccess1 = 'cập nhật thành công lộ trình';
 
     public static $messageDelete = 'Bạn có muốn xóa mục này không?';
 

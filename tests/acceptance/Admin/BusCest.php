@@ -7,10 +7,10 @@ class BusCest
 {
     public function __construct()
     {
-        $this->fake                 = Faker\Factory::create();
+        $this->faker                = Faker\Factory::create();
         $this->username             = 'nguyentrang0912@gmail.com';
         $this->password             = '123';
-        $this->randomLicensePlates  = '51A-' .random_int(1111,99999);
+        $this->randomLicensePlates  = $this->faker->bothify('##?-####');
         $this->randomSeats          = rand(16,60);
     }
     public function _before(AdminLoginStep $I)

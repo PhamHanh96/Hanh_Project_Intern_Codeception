@@ -46,6 +46,34 @@ class ScheduleStep extends \AcceptanceTester
         $I->fillField(SchedulePage::$buttonSearch, $codeRoute);
     }
 
+    public function editSchedule($codeRoute, $dayStartEdit, $TimeEdit)
+    {
+        $I = $this;
+        $I->wantTo('Edit Schedule!');
+        $I->amOnPage(SchedulePage::$url);
+        $I->searchSchedule($codeRoute);
+        $I->click(SchedulePage::$iconEdit);
+//        $I->pauseExecution();
+//        $I->waitForElement(SchedulePage::$codeRoute, 30);
+//        $I->click(SchedulePage::$codeRoute);
+//        $usePage = new SchedulePage();
+//        $I->waitForElement($usePage->returnChoice($codeRouteEdit), 30);
+//        $I->click($usePage->returnChoice($codeRouteEdit));
+        $I->wait(1);
+//        $I->click(SchedulePage::$licensePlates);
+//        $usePage = new SchedulePage();
+//        $I->waitForElement($usePage->returnChoice($licensePlatesEdit));
+//        $I->click($usePage->returnChoice($licensePlatesEdit));
+        $I->fillField(SchedulePage::$dayStart, $dayStartEdit);
+        $I->click(SchedulePage::$Time);
+        $usePage = new SchedulePage();
+        $I->waitForElement($usePage->returnChoice($TimeEdit));
+        $I->click($usePage->returnChoice($TimeEdit));
+        $I->click(SchedulePage::$buttonAddNew);
+        $I->see(SchedulePage::$messageSaveSuccess1);
+
+    }
+
 
     public function deleteSchedule($codeRoute)
     {

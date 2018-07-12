@@ -9,7 +9,7 @@ class ScheduleCest
 {
     public function __construct()
     {
-        $this->fake                 = Faker\Factory::create();
+        $this->faker                 = Faker\Factory::create();
         $this->username             = 'nguyentrang0912@gmail.com';
         $this->password             = '123';
         $this->randomCodeRoute      = 'CodeRoute' .rand(1,999);
@@ -18,10 +18,12 @@ class ScheduleCest
         $this->randomLength         = rand(50,9999);
         $this->randomTime           = rand(0,23) .':' .rand(00,59);
         $this->randomPrice          = rand(30000,1000000);
-        $this->randomLicensePlates  = '51A-' .random_int(1111,99999);
+        $this->randomLicensePlates  = $this->faker->bothify('##?-####');
         $this->randomSeats          = rand(16,60);
-        $this->searchDayStart       = '2018-08-15';
+        $this->searchDayStart       = $this->faker->date($format = 'Y-m-d', $min = 'now');
+        $this->searchDayStartEdit   = $this->faker->date($format = 'Y-m-d', $min = 'now');;
         $this->searchTime           = '12:00';
+        $this->searchTimeEdit       = '20:00';
     }
     public function _before(AdminLoginStep $I)
     {
@@ -55,11 +57,18 @@ class ScheduleCest
         $I->addSchedule($this->randomCodeRoute, $this->randomLicensePlates, $this->searchDayStart, $this->searchTime);
     }
 
-    public function deleteSchedule(AcceptanceTester $I, $scenario)
-    {
-        $I = new ScheduleStep($scenario);
-        $I->wantTo('Delete this Schedule!');
-        $I->deleteSchedule($this->randomCodeRoute);
-    }
+//    public function editSchedule(AcceptanceTester $I, $scenario)
+//    {
+//        $I = new ScheduleStep($scenario);
+//        $I->wantTo('Edit this Schedule!');
+//        $I->editSchedule($this->randomCodeRoute, $this->searchDayStartEdit, $this->searchTimeEdit);
+//    }
+//
+//    public function deleteSchedule(AcceptanceTester $I, $scenario)
+//    {
+//        $I = new ScheduleStep($scenario);
+//        $I->wantTo('Delete this Schedule!');
+//        $I->deleteSchedule($this->randomCodeRoute);
+//    }
 
 }

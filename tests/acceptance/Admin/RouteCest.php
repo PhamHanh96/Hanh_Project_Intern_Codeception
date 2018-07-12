@@ -13,14 +13,14 @@ class RouteCest
 
     public function __construct()
     {
-       $this->fake               = Faker\Factory::create();
+       $this->faker               = Faker\Factory::create();
        $this->username           = 'nguyentrang0912@gmail.com';
        $this->password           = '123';
        $this->randomCodeRoute    = 'CodeRoute' .rand(1,999);
        $this->randomWhereTo      = 'WhereTo' .rand(1,999);
        $this->randomWhereStart   = 'WhereStart' .rand(1,999);
        $this->randomLength       = rand(50,9999);
-       $this->randomTime         = rand(0,23) .':' .rand(00,59);
+       $this->randomTime         = $this->faker->time($format = 'H:i:s', $max = 'now');
        $this->randomPrice        = rand(30000,1000000);
     }
 
