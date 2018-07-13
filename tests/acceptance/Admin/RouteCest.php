@@ -11,14 +11,14 @@ class RouteCest
     public function __construct()
     {
        $this->faker               = Faker\Factory::create();
-       $this->username           = 'nguyentrang0912@gmail.com';
-       $this->password           = '123';
-       $this->randomCodeRoute    = 'CodeRoute' .rand(1,999);
-       $this->randomWhereTo      = 'WhereTo' .rand(1,999);
-       $this->randomWhereStart   = 'WhereStart' .rand(1,999);
-       $this->randomLength       = rand(50,9999);
-       $this->randomTime         = $this->faker->time($format = 'H:i:s', $max = 'now');
-       $this->randomPrice        = rand(30000,1000000);
+       $this->username            = 'nguyentrang0912@gmail.com';
+       $this->password            = '123';
+       $this->randomCodeRoute     = $this->faker->bothify('CodeRoute #?#?#?');
+       $this->randomWhereTo       = $this->faker->bothify('Where To #?#?#?');
+       $this->randomWhereStart    = $this->faker->bothify('Where Start #?#?#?');
+       $this->randomLength        = rand(50,9999);
+       $this->randomTime          = $this->faker->time($format = 'H:i:s', $max = 'now');
+       $this->randomPrice         = rand(30000,1000000);
     }
     /**
      * @param AdminLoginStep $I

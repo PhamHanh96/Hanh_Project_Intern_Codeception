@@ -16,6 +16,7 @@ class AdminLoginStep extends \AcceptanceTester
         $I->fillField(AdminLoginPage::$username, $user);
         $I->fillField(AdminLoginPage::$password, $pass);
         $I->click(AdminLoginPage::$loginButton);
+        $I->wait(1);
     }
     /**
      * @param $name
