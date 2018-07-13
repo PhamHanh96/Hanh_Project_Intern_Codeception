@@ -12,7 +12,7 @@ class UserLoginCest
         $this->randomIdCustomer         = random_int(100000000,999999999);
         $this->randomAddress            = $this->faker->address;
         $this->randomPassword           = '123';
-        $this->randomConfirmPassword    = '123';e
+        $this->randomConfirmPassword    = '123';
     }
 
     /**
