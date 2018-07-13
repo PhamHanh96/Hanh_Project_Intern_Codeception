@@ -2,6 +2,10 @@
 use Step\Acceptance\User\RegisterStep as RegisterStep;
 class RegisterCest
 {
+    /**
+     * RegisterCest constructor.
+     * @throws Exception
+     */
     public function __construct()
     {
         $this->faker                     = Faker\Factory::create();
@@ -13,6 +17,9 @@ class RegisterCest
         $this->randomPassword           = '123';
         $this->randomConfirmPassword    = '123';
     }
+    /**
+     * @param RegisterStep $I
+     */
     public function register(RegisterStep $I)
     {
         $I->register($this->randomUsername, $this->randomEmail, $this->randomPhoneNumber, $this->randomIdCustomer, $this->randomAddress, $this->randomPassword, $this->randomConfirmPassword);

@@ -1,6 +1,9 @@
 <?php
 namespace Page\admin;
-
+/**
+ * Class BusPage
+ * @package Page\admin
+ */
 class BusPage
 {
     // include url of current page
@@ -15,6 +18,4 @@ class BusPage
     public static $buttonAddNew = ['xpath' => '//input[contains(@class, \'btn-default\')]'];
 
     public static $messageSaveSuccess = 'Thêm thành công xe khách';
-
-
 }

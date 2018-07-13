@@ -1,18 +1,14 @@
 <?php
 namespace Page\Admin;
-
+/**
+ * Class RoutePage
+ * @package Page\Admin
+ */
 class RoutePage
 {
     public static $url = '/Admin/ADTuyenDuong';
 
     public static $buttonNew = ['xpath' => '//a[contains(@class, \'btn-primary\')]'];
-
-
-//    public static $editButton = ['class' => 'fa fa-fw fa-edit'];
-//
-//    public static $deleteButton = ['class' => 'btn btn-danger'];
-//
-//    public static $detailTuyenDuongButton = ['class' => 'btn btn-primary'];
 
     public static $codeRoute = ['id' => 'MS_TUYEN'];
 
@@ -45,7 +41,4 @@ class RoutePage
     public static $buttonCancle = ['xpath' => '//button[contains(@class, \'btn-default\')]'];
 
     public static $buttonContinue = ['xpath' => '//button[contains(@class, \'btn-primary\')]'];
-
-
-
 }

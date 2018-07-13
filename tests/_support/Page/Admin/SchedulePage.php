@@ -1,9 +1,11 @@
 <?php
 namespace Page\Admin;
-
+/**
+ * Class SchedulePage
+ * @package Page\Admin
+ */
 class SchedulePage
 {
-
     public static $url = '/Admin/ADLoTrinh';
 
     public static $buttonNew = ['xpath' => '//a[contains(@class, \'btn-primary\')]'];
@@ -35,10 +37,12 @@ class SchedulePage
     public static $messageDelete = 'Bạn có muốn xóa mục này không?';
 
     public static $messageDeleteSuccess = 'Xóa thành công!';
-
+    /**
+     * @param $value
+     * @return array
+     */
     public static function returnChoice($value)
     {
         return ['xpath' => "//option[contains(text(), '" . $value . "')]"];
     }
-
 }

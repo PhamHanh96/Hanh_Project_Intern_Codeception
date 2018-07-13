@@ -4,7 +4,6 @@ use Page\User\UserBookTicketPage as UserBookTicketPage;
 
 class UserBookTicketStep extends \AcceptanceTester
 {
-
     /**
      * @param $codeRoute
      * @param $numberOfTickets
@@ -22,7 +21,6 @@ class UserBookTicketStep extends \AcceptanceTester
         $I->click(UserBookTicketPage::$buttonSubmit);
         $I->see(UserBookTicketPage::$messageSaveSuccess);
     }
-
     public function CheckCart()
     {
         $I=$this;

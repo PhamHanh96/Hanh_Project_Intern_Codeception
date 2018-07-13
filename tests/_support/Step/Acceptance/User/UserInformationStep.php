@@ -4,7 +4,14 @@ use Page\User\UserInformationPage as UserInformationPage;
 
 class UserInformationStep extends \AcceptanceTester
 {
-
+    /**
+     * @param $username
+     * @param $phoneNumber
+     * @param $idCustomer
+     * @param $address
+     * @param $password
+     * @param $confirmPassword
+     */
     public function EditInformation($username, $phoneNumber, $idCustomer, $address, $password, $confirmPassword)
     {
         $I = $this;
@@ -19,7 +26,6 @@ class UserInformationStep extends \AcceptanceTester
         $I->fillField(UserInformationPage::$confirmPassword, $confirmPassword);
         $I->click(UserInformationPage::$buttonUpdate);
     }
-
     public function ViewInformation()
     {
         $I = $this;
@@ -27,5 +33,4 @@ class UserInformationStep extends \AcceptanceTester
         $I->amOnPage(UserInformationPage::$URL);
         $I->click(UserInformationPage::$buttonInformation);
     }
-
 }

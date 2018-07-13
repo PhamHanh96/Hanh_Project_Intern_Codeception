@@ -5,12 +5,9 @@ use Step\Acceptance\Admin\AdminLoginStep as AdminLoginStep;
 
 class RouteCest
 {
-
     /**
      * TuyenDuongCest constructor.
      */
-
-
     public function __construct()
     {
        $this->faker               = Faker\Factory::create();
@@ -23,8 +20,6 @@ class RouteCest
        $this->randomTime         = $this->faker->time($format = 'H:i:s', $max = 'now');
        $this->randomPrice        = rand(30000,1000000);
     }
-
-
     /**
      * @param AdminLoginStep $I
      */
@@ -32,22 +27,26 @@ class RouteCest
     {
         $I->loginAccount($this->username, $this->password);
     }
-
-    // tests
+    /**
+     * @param RouteStep $I
+     */
     public function createRoute(routeStep $I)
     {
         $I->addRoute( $this->randomCodeRoute, $this->randomWhereTo, $this->randomWhereStart, $this->randomLength, $this->randomTime, $this->randomPrice);
     }
-
+    /**
+     * @param RouteStep $I
+     */
     public function editRoute(routeStep $I)
     {
         $I->editRoute( $this->randomCodeRoute,$this->randomWhereTo, $this->randomWhereStart, $this->randomLength,$this->randomTime, $this->randomPrice);
     }
-
+    /**
+     * @param RouteStep $I
+     */
     public function deleteRoute(routeStep $I)
     {
         $I->wantTo('Delete this Route!');
         $I->deleteRoute($this->randomCodeRoute);
     }
-
 }

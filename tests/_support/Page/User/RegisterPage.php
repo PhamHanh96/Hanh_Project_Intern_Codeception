@@ -1,6 +1,9 @@
 <?php
 namespace Page\User;
-
+/**
+ * Class RegisterPage
+ * @package Page\User
+ */
 class RegisterPage
 {
     // include url of current page
@@ -25,5 +28,4 @@ class RegisterPage
     public static $buttonSubmitRegister = ['xpath' => '//input[contains(@class, \'btn-primary\')]'];
 
     public static $messageSaveSuccess = 'Đăng kí thành công';
-
 }

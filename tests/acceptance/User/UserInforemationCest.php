@@ -5,6 +5,10 @@ use Step\Acceptance\User\UserInformationStep as UserInformationStep;
 
 class UserInforemationCest
 {
+    /**
+     * UserInforemationCest constructor.
+     * @throws Exception
+     */
     public function __construct()
     {
         $this->faker                     = Faker\Factory::create();
@@ -17,18 +21,20 @@ class UserInforemationCest
         $this->randomPassword           = '123';
         $this->randomConfirmPassword    = '123';
     }
-
+    /**
+     * @param UserLoginStep $I
+     */
     public function _before(UserLoginStep $I)
     {
         $I->wantTo('Login Website');
         $I->Login($this->email, $this->pass);
     }
-
+    /**
+     * @param UserInformationStep $I
+     */
     public function UserInformation(UserInformationStep $I)
     {
         $I->EditInformation($this->randomUsername, $this->randomPhoneNumber, $this->randomIdCustomer, $this->randomAddress, $this->randomPassword, $this->randomConfirmPassword);
         $I->ViewInformation();
     }
-
-
 }
