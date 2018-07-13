@@ -34,7 +34,7 @@ class RoutePage
 
     public static $buttonSearch = ['xpath' => '//input[contains(@class, \' input-sm\')]'];
 
-    public static $iconEdit = ['class' => 'btn-default'];
+    public static $iconEdit = ['xpath' => '//a[contains(@class, \'btn-default\')]'];
 
     public static $iconDelete = ['xpath' => '//a[contains(@class, \' btn-danger\')]'];
 
