@@ -30,4 +30,20 @@ class BusCest
     {
         $I->addBus($this->randomLicensePlates, $this->randomSeats);
     }
+    /**
+     * @param BusStep $I
+     */
+    public function editBus(BusStep $I)
+    {
+        $I->editBus($this->randomLicensePlates,$this->randomSeats);
+    }
+    /**
+     * @param BusStep $I
+     * @throws Exception
+     */
+    public function deleteBus(BusStep $I)
+    {
+        $I->wantTo('Delete this Bus!');
+        $I->deleteBus($this->randomLicensePlates);
+    }
 }
