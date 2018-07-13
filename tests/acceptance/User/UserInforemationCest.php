@@ -8,6 +8,8 @@ class UserInforemationCest
     public function __construct()
     {
         $this->faker                     = Faker\Factory::create();
+        $this->email                    = 'hanhhana041096@gmail.com';
+        $this->pass                     = '123';
         $this->randomUsername           = $this->faker->bothify('???????????');
         $this->randomPhoneNumber        = $this->faker->bothify('01#########');
         $this->randomIdCustomer         = random_int(100000000,999999999);
@@ -19,7 +21,7 @@ class UserInforemationCest
     public function _before(UserLoginStep $I)
     {
         $I->wantTo('Login Website');
-        $I->Login('hanhhana041096@gmail.com', '123');
+        $I->Login($this->email, $this->pass);
     }
 
     public function UserInformation(UserInformationStep $I)

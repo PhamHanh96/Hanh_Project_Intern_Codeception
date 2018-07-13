@@ -14,4 +14,17 @@ class AdminLoginStep extends \AcceptanceTester
         $I->click(AdminLoginPage::$loginButton);
     }
 
+    public function editInformation($name, $phone, $idAdmin, $address, $pass, $confirmPass)
+    {
+        $I = $this;
+        $I->wantTo('Edit information this account');
+        $I->amOnPage(AdminLoginPage::$passwordValue);
+
+    }
+
+    public function logoutAccount()
+    {
+
+    }
+
 }

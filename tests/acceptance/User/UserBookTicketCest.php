@@ -5,11 +5,18 @@ use Step\Acceptance\User\UserBookTicketStep as UserBookTicketStep;
 
 class UserBookTicketCest
 {
+    public function __construct()
+    {
+        $this->faker                    = Faker\Factory::create();
+        $this->email                    = 'hanhhana041096@gmail.com';
+        $this->pass                     = '123';
+
+    }
 
     public function _before(UserLoginStep $I)
     {
         $I->wantTo('Login Website');
-        $I->Login('hanhhana041096@gmail.com', '123');
+        $I->Login($this->email, $this->pass);
 
     }
 

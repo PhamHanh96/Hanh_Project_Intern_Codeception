@@ -56,13 +56,13 @@ class ScheduleCest
         $I->wantTo('Create new schedule!');
         $I->addSchedule($this->randomCodeRoute, $this->randomLicensePlates, $this->searchDayStart, $this->searchTime);
     }
-//
-//    public function editSchedule(AcceptanceTester $I, $scenario)
-//    {
-//        $I = new ScheduleStep($scenario);
-//        $I->wantTo('Edit this Schedule!');
-//        $I->editSchedule($this->randomCodeRoute, $this->searchDayStartEdit, $this->searchTimeEdit);
-//    }
+
+    public function editSchedule(AcceptanceTester $I, $scenario)
+    {
+        $I = new ScheduleStep($scenario);
+        $I->wantTo('Edit this Schedule!');
+        $I->editSchedule('CodeRoute918', $this->searchDayStartEdit, $this->searchTimeEdit);
+    }
 
     public function deleteSchedule(AcceptanceTester $I, $scenario)
     {
