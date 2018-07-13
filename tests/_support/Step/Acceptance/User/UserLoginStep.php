@@ -4,7 +4,10 @@ use Page\User\UserLoginPage as UserLoginPage;
 
 class UserLoginStep extends \AcceptanceTester
 {
-
+    /**
+     * @param $email
+     * @param $password
+     */
     public function Login($email, $password)
     {
         $I = $this;

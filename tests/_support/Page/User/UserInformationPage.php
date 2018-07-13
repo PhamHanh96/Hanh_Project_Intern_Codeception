@@ -1,6 +1,9 @@
 <?php
 namespace Page\User;
-
+/**
+ * Class UserInformationPage
+ * @package Page\User
+ */
 class UserInformationPage
 {
     // include url of current page
@@ -27,6 +30,4 @@ class UserInformationPage
     public static $messageSaveSuccess = 'CẬP NHẬT THÀNH CÔNG KHÁCH HÀNG';
 
     public static $buttonInformation = ['xpath' => '//a[contains(@href, \'/Home/ThongTinKhachHang\')]'];
-
-
 }

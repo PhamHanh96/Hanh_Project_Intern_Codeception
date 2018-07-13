@@ -7,6 +7,9 @@ use Step\Acceptance\Admin\AdminLoginStep as AdminLoginStep;
 
 class ScheduleCest
 {
+    /**
+     * ScheduleCest constructor.
+     */
     public function __construct()
     {
         $this->faker                 = Faker\Factory::create();
@@ -25,26 +28,33 @@ class ScheduleCest
         $this->searchTime           = "12:00";
         $this->searchTimeEdit       = "20:00";
     }
+    /**
+     * @param AdminLoginStep $I
+     */
     public function _before(AdminLoginStep $I)
     {
         $I->loginAccount($this->username, $this->password);
     }
-
+    /**
+     * @param AcceptanceTester $I
+     * @param $scenario
+     */
     public function testRoute(AcceptanceTester $I, $scenario)
     {
         $I = new RouteStep($scenario);
         $I->wantTo('Create new Route!');
         $I->addRoute( $this->randomCodeRoute, $this->randomWhereTo, $this->randomWhereStart, $this->randomLength, $this->randomTime, $this->randomPrice);
     }
-
+    /**
+     * @param AcceptanceTester $I
+     * @param $scenario
+     */
     public function testBus(AcceptanceTester $I, $scenario)
     {
         $I = new BusStep($scenario);
         $I->wantTo('Create new Bus!');
         $I->addBus($this->randomLicensePlates, $this->randomSeats);
     }
-
-
     /**
      * @param LoTrinhStep $I
      * @param $scenario
@@ -56,14 +66,22 @@ class ScheduleCest
         $I->wantTo('Create new schedule!');
         $I->addSchedule($this->randomCodeRoute, $this->randomLicensePlates, $this->searchDayStart, $this->searchTime);
     }
-
+    /**
+     * @param AcceptanceTester $I
+     * @param $scenario
+     * @throws Exception
+     */
     public function editSchedule(AcceptanceTester $I, $scenario)
     {
         $I = new ScheduleStep($scenario);
         $I->wantTo('Edit this Schedule!');
         $I->editSchedule('CodeRoute918', $this->searchDayStartEdit, $this->searchTimeEdit);
     }
-
+    /**
+     * @param AcceptanceTester $I
+     * @param $scenario
+     * @throws Exception
+     */
     public function deleteSchedule(AcceptanceTester $I, $scenario)
     {
         $I = new ScheduleStep($scenario);

@@ -1,6 +1,9 @@
 <?php
 namespace Page\user;
-
+/**
+ * Class UserLoginPage
+ * @package Page\user
+ */
 class UserLoginPage
 {
     // include url of current page
@@ -13,5 +16,4 @@ class UserLoginPage
     public static $password = ['id' => 'MATKHAU'];
 
     public static $buttonSubmitLogin = ['xpath' => '//button[contains(@class, \'pull-right\')]'];
-
 }
