@@ -12,10 +12,13 @@ class UserLoginCest
         $this->randomIdCustomer         = random_int(100000000,999999999);
         $this->randomAddress            = $this->faker->address;
         $this->randomPassword           = '123';
-        $this->randomConfirmPassword    = '123';
-
+        $this->randomConfirmPassword    = '123';e
     }
 
+    /**
+     * @param AcceptanceTester $I
+     * @param $scenario
+     */
     public function testRegister(AcceptanceTester $I, $scenario)
     {
         $I = new RegisterStep($scenario);
@@ -23,10 +26,11 @@ class UserLoginCest
         $I->register($this->randomUsername, $this->randomEmail, $this->randomPhoneNumber, $this->randomIdCustomer, $this->randomAddress, $this->randomPassword, $this->randomConfirmPassword);
     }
 
+    /**
+     * @param UserLoginStep $I
+     */
     public function Login(UserLoginStep $I)
     {
         $I->Login($this->randomEmail, $this->randomPassword);
     }
-
-
 }
