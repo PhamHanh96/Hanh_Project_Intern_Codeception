@@ -35,4 +35,11 @@ class UserLoginCest
     {
         $I->Login($this->randomEmail, $this->randomPassword);
     }
+
+    public function Logout(UserLoginStep $I)
+    {
+        $I->Login($this->randomEmail, $this->randomPassword);
+        $I->wait(1);
+        $I->Logout();
+    }
 }

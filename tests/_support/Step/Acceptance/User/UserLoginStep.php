@@ -18,5 +18,11 @@ class UserLoginStep extends \AcceptanceTester
         $I->fillField(UserLoginPage::$password, $password);
         $I->click(UserLoginPage::$buttonSubmitLogin);
     }
-
+    public function Logout()
+    {
+        $I = $this;
+        $I->wantTo('Logout this account');
+        $I->click(UserLoginPage::$buttonLogOut);
+        $I->wait(1);
+    }
 }
