@@ -27,6 +27,7 @@ class UserBookTicketCest
     public function UserBookTicket(UserBookTicketStep $I)
     {
         $I->BookTickets('CodeRoute83', '3');
+        $I->wait(1);
         $I->CheckCart();
     }
 }

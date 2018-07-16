@@ -18,6 +18,7 @@ class UserBookTicketStep extends \AcceptanceTester
         $I->click(UserBookTicketPage::$buttonSearch);
         $I->click(UserBookTicketPage::$buttonBuyTicket);
         $I->fillField(UserBookTicketPage::$numberOfTickets, $numberOfTickets);
+        $I->wait(1);
         $I->click(UserBookTicketPage::$buttonSubmit);
         $I->see(UserBookTicketPage::$messageSaveSuccess);
     }
