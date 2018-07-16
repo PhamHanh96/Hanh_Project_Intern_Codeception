@@ -7,6 +7,7 @@ class UserBookTicketStep extends \AcceptanceTester
     /**
      * @param $codeRoute
      * @param $numberOfTickets
+     * @param $codeSchedule
      */
     public function BookTickets($codeRoute, $numberOfTickets)
     {
@@ -18,9 +19,9 @@ class UserBookTicketStep extends \AcceptanceTester
         $I->click(UserBookTicketPage::$buttonSearch);
         $I->click(UserBookTicketPage::$buttonBuyTicket);
         $I->fillField(UserBookTicketPage::$numberOfTickets, $numberOfTickets);
-        $I->wait(1);
         $I->click(UserBookTicketPage::$buttonSubmit);
         $I->see(UserBookTicketPage::$messageSaveSuccess);
+        $I->wait(1);
     }
     public function CheckCart()
     {
