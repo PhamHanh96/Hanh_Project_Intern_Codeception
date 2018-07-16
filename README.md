@@ -1,7 +1,7 @@
 # Hanh_Project_Intern_Codeception
 
 My Project Intern
-=======
+
 This is my project intern codeception.
 ## Admin:
 - Login, Edit information, Logout
@@ -19,4 +19,3 @@ This is my project intern codeception.
 https://imgur.com/a/48Vab16
 
 https://imgur.com/cPMXkRB
-

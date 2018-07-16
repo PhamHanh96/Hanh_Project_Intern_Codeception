@@ -9,7 +9,7 @@ class UserLoginCest
      */
     public function __construct()
     {
-        $this->faker                     = Faker\Factory::create();
+        $this->faker                    = Faker\Factory::create();
         $this->randomUsername           = $this->faker->bothify('???????????');
         $this->randomEmail              = $this->faker->bothify('???????????@gmail.com');
         $this->randomPhoneNumber        = $this->faker->bothify('01#########');
