@@ -28,5 +28,6 @@ This is my project intern codeception.
 ## Video Walkthrough:
 https://imgur.com/a/48Vab16
 (Demo Codeception)
+
 https://imgur.com/cPMXkRB
 (Update User Logout)
