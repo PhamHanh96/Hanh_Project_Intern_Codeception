@@ -35,7 +35,9 @@ class UserLoginCest
     {
         $I->Login($this->randomEmail, $this->randomPassword);
     }
-
+    /**
+     * @param UserLoginStep $I
+     */
     public function Logout(UserLoginStep $I)
     {
         $I->Login($this->randomEmail, $this->randomPassword);
