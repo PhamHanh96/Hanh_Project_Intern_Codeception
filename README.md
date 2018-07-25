@@ -52,4 +52,4 @@ https://imgur.com/cPMXkRB
 ## Note:
 - git reset -hard (xóa tất cả những gì mình đã thay đổi)
 - Luôn luôn đứng ở nhánh dev rồi mới đi tới các nhánh khác
--
+
