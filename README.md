@@ -31,3 +31,25 @@ https://imgur.com/a/48Vab16
 
 https://imgur.com/cPMXkRB
 (Update User Logout)
+
+## Cách pull và push code trên github của redSHOP:
+- Copy đường dẫn: https://github.com/PhamHanh96/redSHOP.git
+- git clone https://github.com/PhamHanh96/redSHOP.git
+- cd redSHOP
+- git remote -v (kiểm tra các nhánh)
+- git remote add upstream https://github.com/redCOMPONENT-COM/redSHOP.git (đường dẫn github của công ty)
+- git remote -v (kiểm tra lại cho chắc)
+- git featch upstream
+- git pull upstream develop (đồng bộ code của công ty)
+- git merge upstream/develop (merge vào nhánh dev của công ty)
+- git push origin develop
+- git checkout -b REDSHOP-5161 upstream/develop (REDSHOP-5161 là đuôi của task được giao)
+- git branch (kiểm tra lại nhánh đang đứng)
+- git status (kiểm tra các file thay đổi)
+- git add tenfile (hoặc nếu muốn add tất cả các file dùng: git add . )
+- git commit -m ""
+- git push origin REDSHOP-5161 (push lên nhánh nãy mới tạo có tên là đuôi của task được giao)
+## Note:
+- git reset -hard (xóa tất cả những gì mình đã thay đổi)
+- Luôn luôn đứng ở nhánh dev rồi mới đi tới các nhánh khác
+-
