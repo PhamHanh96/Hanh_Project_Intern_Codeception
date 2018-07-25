@@ -4,12 +4,19 @@ use Page\Admin\BillPage as BillPage;
 use Page\User\UserBookTicketPage as UserBookTicketPage;
 class BillStep extends \AcceptanceTester
 {
+    /**
+     * @param $codeBill
+     */
     public function searchBill($codeBill)
     {
         $I = $this;
         $I->wantTo('Search Bill!');
         $I->fillField(BillPage::$buttonSearch, $codeBill);
     }
+    /**
+     * @param $codeBill
+     * @throws \Exception
+     */
     public function checkBill($codeBill)
     {
         $I = $this;
