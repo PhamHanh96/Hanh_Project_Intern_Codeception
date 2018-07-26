@@ -51,6 +51,6 @@ https://imgur.com/cPMXkRB
 - git commit -m ""
 - git push origin REDSHOP-5161 (push lên nhánh nãy mới tạo có tên là đuôi của task được giao)
 ## Note:
-- git reset -hard (xóa tất cả những gì mình đã thay đổi)
+- git reset --hard (xóa tất cả những gì mình đã thay đổi)
 - Luôn luôn đứng ở nhánh dev để chạy composer install/update, sau đó checkout ra nhánh của task mới nhận rồi làm việc
 
