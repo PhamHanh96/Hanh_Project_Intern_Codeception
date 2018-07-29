@@ -1,10 +1,8 @@
 <?php
-
 use Step\Acceptance\Admin\ScheduleStep as ScheduleStep;
 use Step\Acceptance\Admin\BusStep as BusStep;
 use Step\Acceptance\Admin\RouteStep as RouteStep;
 use Step\Acceptance\Admin\AdminLoginStep as AdminLoginStep;
-
 class ScheduleCest
 {
     /**

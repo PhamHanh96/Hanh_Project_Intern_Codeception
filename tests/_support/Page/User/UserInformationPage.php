@@ -6,7 +6,6 @@ namespace Page\User;
  */
 class UserInformationPage
 {
-    // include url of current page
     public static $URL = '/';
 
     public static $buttonCustomer = ['xpath' => '//a[contains(@href, \'/KhachHang/Edit\')]'];

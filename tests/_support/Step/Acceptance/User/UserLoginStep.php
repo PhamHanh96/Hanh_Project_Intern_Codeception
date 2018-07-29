@@ -1,7 +1,6 @@
 <?php
 namespace Step\Acceptance\user;
 use Page\User\UserLoginPage as UserLoginPage;
-
 class UserLoginStep extends \AcceptanceTester
 {
     /**

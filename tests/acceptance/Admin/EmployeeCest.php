@@ -1,7 +1,6 @@
 <?php
 use Step\Acceptance\Admin\EmployeeStep as EmployeeStep;
 use Step\Acceptance\Admin\AdminLoginStep as AdminLoginStep;
-
 class EmployeeCest
 {
     /**

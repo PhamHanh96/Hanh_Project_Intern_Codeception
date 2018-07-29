@@ -1,8 +1,9 @@
 <?php
 namespace Step\Acceptance\Admin;
-use Page\Admin\BillPage as BillPage;
-use Page\User\UserBookTicketPage as UserBookTicketPage;
-class BillStep extends \AcceptanceTester
+use Page\Admin\BillPage;
+use Step\Acceptance\User\UserBookTicketStep;
+
+class BillStep extends UserBookTicketStep
 {
     /**
      * @param $codeBill
@@ -34,6 +35,5 @@ class BillStep extends \AcceptanceTester
         $I->click(BillPage::$buttonContinue);
         $I->wait(1);
         $I->acceptPopup();
-
     }
 }

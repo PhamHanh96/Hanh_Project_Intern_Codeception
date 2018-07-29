@@ -1,8 +1,6 @@
 <?php
-
 use Step\Acceptance\Admin\RouteStep as RouteStep;
 use Step\Acceptance\Admin\AdminLoginStep as AdminLoginStep;
-
 class RouteCest
 {
     /**
@@ -43,6 +41,7 @@ class RouteCest
     }
     /**
      * @param RouteStep $I
+     * @throws Exception
      */
     public function deleteRoute(routeStep $I)
     {

@@ -23,4 +23,6 @@ class UserBookTicketPage
     public static $messageSaveSuccess = 'Them Don hang thanh cong';
 
     public static $iconCart = ['xpath' => '//a[contains(@href, \'/HoaDon\')]'];
+
+    public static $codeBill = ['class' => 'nomargin'];
 }

@@ -1,7 +1,7 @@
 <?php
 use Step\Acceptance\User\UserLoginStep as UserLoginStep;
 use Step\Acceptance\User\UserBookTicketStep as UserBookTicketStep;
-
+use Step\Acceptance\User\RegisterStep as RegisterStep;
 class UserBookTicketCest
 {
     /**
@@ -12,22 +12,31 @@ class UserBookTicketCest
         $this->faker                    = Faker\Factory::create();
         $this->email                    = 'hanhhana041096@gmail.com';
         $this->pass                     = '123';
+        $this->randomNumberOfTickets    = rand(1,10);
+        $this->randomUsername           = $this->faker->bothify('???????????');
+        $this->randomEmail              = $this->faker->bothify('???????????@gmail.com');
+        $this->randomPhoneNumber        = $this->faker->bothify('01#########');
+        $this->randomIdCustomer         = random_int(100000000,999999999);
+        $this->randomAddress            = $this->faker->address;
+        $this->randomPassword           = '123';
+        $this->randomConfirmPassword    = '123';
     }
     /**
-     * @param UserLoginStep $I
+     * @param RegisterStep $I
      */
-    public function _before(UserLoginStep $I)
+    public function register(RegisterStep $I)
     {
-        $I->wantTo('Login Website');
-        $I->Login($this->email, $this->pass);
+        $I->register($this->randomUsername, $this->randomEmail, $this->randomPhoneNumber, $this->randomIdCustomer, $this->randomAddress, $this->randomPassword, $this->randomConfirmPassword);
     }
     /**
-     * @param UserBookTicketStep $I
+     * @param AcceptanceTester $I
+     * @param $sencerio
      */
-    public function UserBookTicket(UserBookTicketStep $I)
+    public function UserBookTicket(AcceptanceTester $I, $scenario)
     {
-        $I->BookTickets('CodeRoute28', '2');
-        $I->wait(1);
-        $I->CheckCart();
+        $I = new UserLoginStep($scenario);
+        $I->Login($this->randomEmail, $this->randomPassword);
+        $I = new UserBookTicketStep($scenario);
+        $I->BookTicketAndCheckCart('CodeRoute397', $this->randomNumberOfTickets);
     }
 }

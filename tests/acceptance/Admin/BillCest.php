@@ -11,7 +11,7 @@ class BillCest
         $this->faker               = Faker\Factory::create();
         $this->username            = 'nguyentrang0912@gmail.com';
         $this->password            = '123';
-        $this->randomCodeBill      = '3046';
+        $this->randomCodeBill      = '3062';
     }
     /**
      * @param AdminLoginStep $I
@@ -24,7 +24,7 @@ class BillCest
      * @param BillStep $I
      * @throws Exception
      */
-    public function checkBuill(BillStep $I)
+    public function checkBill(BillStep $I)
     {
         $I->checkBill($this->randomCodeBill);
     }

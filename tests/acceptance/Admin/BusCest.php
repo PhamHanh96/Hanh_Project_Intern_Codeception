@@ -1,8 +1,6 @@
 <?php
 use Step\Acceptance\Admin\BusStep as BusStep;
 use Step\Acceptance\Admin\AdminLoginStep as AdminLoginStep;
-
-
 class BusCest
 {
     /**

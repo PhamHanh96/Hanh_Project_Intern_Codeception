@@ -1,8 +1,6 @@
 <?php
-
 use Step\Acceptance\User\UserLoginStep as UserLoginStep;
 use Step\Acceptance\User\UserInformationStep as UserInformationStep;
-
 class UserInforemationCest
 {
     /**
