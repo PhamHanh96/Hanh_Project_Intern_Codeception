@@ -16,7 +16,6 @@ class AdminLoginStep extends \AcceptanceTester
         $I->fillField(AdminLoginPage::$username, $user);
         $I->fillField(AdminLoginPage::$password, $pass);
         $I->click(AdminLoginPage::$loginButton);
-        $I->wait(1);
     }
     /**
      * @param $name
@@ -31,7 +30,6 @@ class AdminLoginStep extends \AcceptanceTester
         $I = $this;
         $I->wantTo('Edit information this account');
         $I->click(AdminLoginPage::$iconUser);
-        $I->wait(1);
         $I->click(AdminLoginPage::$editInformation);
         $I->see('Xem thông tin cá nhân ');
         $I->fillField(AdminLoginPage::$name, $name);
@@ -43,14 +41,16 @@ class AdminLoginStep extends \AcceptanceTester
         $I->click(AdminLoginPage::$buttonUpdate);
         $I->see(AdminLoginPage::$messageSuccess);
     }
+	/**
+	 * @throws \Exception
+	 */
     public function logoutAccount()
     {
         $I = $this;
         $I->wantTo('Logout this account');
         $I->click(AdminLoginPage::$iconUser);
-        $I->wait(1);
+        $I->waitForElement(AdminLoginPage::$buttonLogout);
         $I->click(AdminLoginPage::$buttonLogout);
-        $I->wait(1);
     }
 
 }

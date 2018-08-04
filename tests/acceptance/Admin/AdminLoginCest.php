@@ -32,6 +32,7 @@ class AdminLoginCest
      */
     public function editAccount(LoginAccount $I)
     {
+    	$I->wantTo('Edit this Admin Account');
         $I->editInformation($this->randomName, $this->randomPhone, $this->randomIdAdmin, $this->randomAddress, $this->randomPassword, $this->randomConfirmPassword);
     }
     /**

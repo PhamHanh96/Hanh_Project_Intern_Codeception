@@ -43,21 +43,22 @@ class ScheduleCest
         $I->wantTo('Create new Route!');
         $I->addRoute( $this->randomCodeRoute, $this->randomWhereTo, $this->randomWhereStart, $this->randomLength, $this->randomTime, $this->randomPrice);
     }
-    /**
-     * @param AcceptanceTester $I
-     * @param $scenario
-     */
+	/**
+	 * @param AcceptanceTester $I
+	 * @param $scenario
+	 * @throws Exception
+	 */
     public function testBus(AcceptanceTester $I, $scenario)
     {
         $I = new BusStep($scenario);
         $I->wantTo('Create new Bus!');
         $I->addBus($this->randomLicensePlates, $this->randomSeats);
     }
-    /**
-     * @param LoTrinhStep $I
-     * @param $scenario
-     * @throws Exception
-     */
+	/**
+	 * @param ScheduleStep $I
+	 * @param $scenario
+	 * @throws Exception
+	 */
     public function createSchedule(ScheduleStep $I, $scenario)
     {
         $I = new ScheduleStep($scenario);
@@ -73,7 +74,7 @@ class ScheduleCest
     {
         $I = new ScheduleStep($scenario);
         $I->wantTo('Edit this Schedule!');
-        $I->editSchedule('CodeRoute918', $this->searchDayStartEdit, $this->searchTimeEdit);
+        $I->editSchedule($this->randomCodeRoute, $this->searchDayStartEdit, $this->searchTimeEdit);
     }
     /**
      * @param AcceptanceTester $I

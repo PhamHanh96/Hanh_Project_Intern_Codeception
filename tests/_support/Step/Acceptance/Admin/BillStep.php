@@ -28,12 +28,11 @@ class BillStep extends UserBookTicketStep
         $I->wantTo('Test with check bill but then cancel');
         $I->waitForElementVisible(BillPage::$buttonCancle,30);
         $I->click(BillPage::$buttonCancle);
-        $I->wait('1');
+        $I->waitForElement(BillPage::$iconCheckBill);
         $I->click(BillPage::$iconCheckBill);
         $I->waitForElementVisible(BillPage::$buttonContinue,30);
         $I->wantTo('Test with check bill then accept');
         $I->click(BillPage::$buttonContinue);
-        $I->wait(1);
         $I->acceptPopup();
     }
 }

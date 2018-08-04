@@ -30,13 +30,15 @@ class RouteCest
      */
     public function createRoute(routeStep $I)
     {
+    	$I->wantTo('Add new Route');
         $I->addRoute( $this->randomCodeRoute, $this->randomWhereTo, $this->randomWhereStart, $this->randomLength, $this->randomTime, $this->randomPrice);
     }
-    /**
-     * @param RouteStep $I
-     */
+	/**
+	 * @param RouteStep $I
+	 */
     public function editRoute(routeStep $I)
     {
+		$I->wantTo('Edit this Route');
         $I->editRoute( $this->randomCodeRoute,$this->randomWhereTo, $this->randomWhereStart, $this->randomLength,$this->randomTime, $this->randomPrice);
     }
     /**

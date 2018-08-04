@@ -21,18 +21,23 @@ class BusCest
     {
         $I->loginAccount($this->username, $this->password);
     }
-    /**
-     * @param BusStep $I
-     */
+	/**
+	 * @param BusStep $I
+	 * @throws Exception
+	 *
+	 */
     public function createBus(BusStep $I)
     {
+		$I->wantTo('Add new bus');
         $I->addBus($this->randomLicensePlates, $this->randomSeats);
     }
-    /**
-     * @param BusStep $I
-     */
+	/**
+	 * @param BusStep $I
+	 * @throws Exception
+	 */
     public function editBus(BusStep $I)
     {
+    	$I->wantTo('Edit this bus');
         $I->editBus($this->randomLicensePlates,$this->randomSeats);
     }
     /**

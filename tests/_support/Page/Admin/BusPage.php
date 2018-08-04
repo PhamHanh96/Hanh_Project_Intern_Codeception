@@ -31,7 +31,7 @@ class BusPage
 
     public static $iconDelete = ['xpath' => '//a[contains(@class, \' btn-danger\')]'];
 
-    public static $buttonCancle = ['xpath' => '//button[contains(@class, \'btn-default\')]'];
+    public static $buttonCancel = ['xpath' => '//button[contains(@class, \'btn-default\')]'];
 
     public static $buttonContinue = ['xpath' => '//button[contains(@class, \'btn-primary\')]'];
 }

@@ -32,7 +32,7 @@ class ScheduleStep extends \AcceptanceTester
         $usePage = new SchedulePage();
         $I->waitForElement($usePage->returnChoice($Time));
         $I->click($usePage->returnChoice($Time));
-        $I->wait('1');
+        $I->waitForElement(SchedulePage::$buttonAddNew);
         $I->click(SchedulePage::$buttonAddNew);
         $I->see(SchedulePage::$messageSaveSuccess);
     }
@@ -58,7 +58,6 @@ class ScheduleStep extends \AcceptanceTester
         $I->amOnPage(SchedulePage::$url);
         $I->searchSchedule($codeRoute);
         $I->click(SchedulePage::$iconEdit);
-        $I->wait('1');
         $I->fillField(SchedulePage::$dayStart, $dayStart);
         $I->click(SchedulePage::$Time);
         $usePage = new SchedulePage();
@@ -81,12 +80,10 @@ class ScheduleStep extends \AcceptanceTester
         $I->wantTo('Test with delete schedule but then cancel');
         $I->waitForElementVisible(SchedulePage::$buttonCancle,30);
         $I->click(SchedulePage::$buttonCancle);
-        $I->wait('1');
+        $I->waitForElement(SchedulePage::$iconDelete);
         $I->click(SchedulePage::$iconDelete);
-        $I->waitForElementVisible(SchedulePage::$buttonContinue,30);
         $I->wantTo('Test with delete schedule then accept');
         $I->click(SchedulePage::$buttonContinue);
-        $I->wait(1);
         $I->acceptPopup();
     }
 }

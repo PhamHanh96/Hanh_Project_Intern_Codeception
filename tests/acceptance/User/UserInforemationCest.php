@@ -32,8 +32,7 @@ class UserInforemationCest
      */
     public function UserInformation(UserInformationStep $I)
     {
+    	$I->wantTo('Edit Information');
         $I->EditInformation($this->randomUsername, $this->randomPhoneNumber, $this->randomIdCustomer, $this->randomAddress, $this->randomPassword, $this->randomConfirmPassword);
-        $I->wait(1);
-        $I->ViewInformation();
     }
 }

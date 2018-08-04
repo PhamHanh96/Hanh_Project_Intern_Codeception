@@ -4,10 +4,11 @@ use Page\Admin\BusPage as BusPage;
 
 class BusStep extends \AcceptanceTester
 {
-    /**
-     * @param $licensePlates
-     * @param $seats
-     */
+	/**
+	 * @param $licensePlates
+	 * @param $seats
+	 * @throws \Exception
+	 */
     public function addBus($licensePlates, $seats)
     {
         $I = $this;
@@ -17,7 +18,6 @@ class BusStep extends \AcceptanceTester
         $I->fillField(BusPage::$licensePlates, $licensePlates);
         $I->fillField(BusPage::$seats, $seats);
         $I->click(BusPage::$buttonAddNew);
-        $I->wait(1);
         $I->see(BusPage::$messageSaveSuccess);
     }
     /**
@@ -29,10 +29,11 @@ class BusStep extends \AcceptanceTester
         $I->wantTo('Search Bus!');
         $I->fillField(BusPage::$buttonSearch, $licensePlates);
     }
-    /**
-     * @param $licensePlates
-     * @param $seats
-     */
+	/**
+	 * @param $licensePlates
+	 * @param $seats
+	 * @throws \Exception
+	 */
     public function editBus($licensePlates, $seats)
     {
         $I = $this;
@@ -42,7 +43,6 @@ class BusStep extends \AcceptanceTester
         $I->click(BusPage::$iconEdit);
         $I->fillField(BusPage::$seats, $seats);
         $I->click(BusPage::$buttonAddNew);
-        $I->wait(1);
         $I->see(BusPage::$messageSaveSuccess1);
     }
     /**
@@ -52,19 +52,17 @@ class BusStep extends \AcceptanceTester
     public function deleteBus($licensePlates)
     {
         $I = $this;
-        $I->wantTo('Delete Bus!');
         $I->amOnPage(BusPage::$URL);
         $I->searchBus($licensePlates);
         $I->click(BusPage::$iconDelete);
-        $I->wantTo('Test with delete bus but then cancel');
-        $I->waitForElementVisible(BusPage::$buttonCancle,30);
-        $I->click(BusPage::$buttonCancle);
-        $I->wait('1');
-        $I->click(BusPage::$iconDelete);
-        $I->waitForElementVisible(BusPage::$buttonContinue,30);
-        $I->wantTo('Test with delete bus then accept');
+        //$I->see(BusPage::$messageDelete);
+        //$I->wantTo('Test with delete bus but then cancel');
+        //$I->click(BusPage::$buttonCancel);
+        //$I->waitForElement(BusPage::$iconDelete);
+        //$I->click(BusPage::$iconDelete);
+        //$I->wantTo('Test with delete bus then accept');
+		$I->waitForElement(BusPage::$buttonContinue);
         $I->click(BusPage::$buttonContinue);
-        $I->wait(1);
         $I->acceptPopup();
     }
 }

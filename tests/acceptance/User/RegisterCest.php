@@ -22,6 +22,7 @@ class RegisterCest
      */
     public function register(RegisterStep $I)
     {
+    	$I->wantTo('Register new account');
         $I->register($this->randomUsername, $this->randomEmail, $this->randomPhoneNumber, $this->randomIdCustomer, $this->randomAddress, $this->randomPassword, $this->randomConfirmPassword);
     }
 }

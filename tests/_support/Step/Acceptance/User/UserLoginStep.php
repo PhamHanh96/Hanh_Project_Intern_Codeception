@@ -22,6 +22,5 @@ class UserLoginStep extends \AcceptanceTester
         $I = $this;
         $I->wantTo('Logout this account');
         $I->click(UserLoginPage::$buttonLogOut);
-        $I->wait(1);
     }
 }

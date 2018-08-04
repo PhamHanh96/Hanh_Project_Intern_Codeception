@@ -29,7 +29,6 @@ class EmployeeStep extends \AcceptanceTester
         $I->fillField(EmployeePage::$password, $password);
         $I->fillField(EmployeePage::$confirmPassword, $confirmPassword);
         $I->click(EmployeePage::$buttonAddNew);
-        $I->wait(1);
         $I->see(EmployeePage::$messageSaveSuccess);
     }
     /**
@@ -64,7 +63,6 @@ class EmployeeStep extends \AcceptanceTester
         $I->fillField(EmployeePage::$password, $password);
         $I->fillField(EmployeePage::$confirmPassword, $confirmPassword);
         $I->click(EmployeePage::$buttonAddNew);
-        $I->wait(1);
         $I->see(EmployeePage::$messageSaveSuccess1);
     }
     /**
@@ -81,12 +79,11 @@ class EmployeeStep extends \AcceptanceTester
         $I->wantTo('Test with delete employee but then cancel');
         $I->waitForElementVisible(EmployeePage::$buttonCancle,30);
         $I->click(EmployeePage::$buttonCancle);
-        $I->wait('1');
+        $I->waitForElement(EmployeePage::$iconDelete);
         $I->click(EmployeePage::$iconDelete);
-        $I->waitForElementVisible(EmployeePage::$buttonContinue,30);
         $I->wantTo('Test with delete employee then accept');
+		$I->waitForElementVisible(EmployeePage::$buttonContinue,30);
         $I->click(EmployeePage::$buttonContinue);
-        $I->wait(1);
         $I->acceptPopup();
     }
 }

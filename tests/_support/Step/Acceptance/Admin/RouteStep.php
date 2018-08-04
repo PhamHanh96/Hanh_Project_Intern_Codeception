@@ -74,12 +74,11 @@ class RouteStep extends \AcceptanceTester
         $I->wantTo('Test with delete route but then cancel');
         $I->waitForElementVisible(RoutePage::$buttonCancle,30);
         $I->click(RoutePage::$buttonCancle);
-        $I->wait('1');
+        $I->wait(1);
+        $I->waitForElement(RoutePage::$iconDelete);
         $I->click(RoutePage::$iconDelete);
-        $I->waitForElementVisible(RoutePage::$buttonContinue,30);
         $I->wantTo('Test with delete route then accept');
         $I->click(RoutePage::$buttonContinue);
-        $I->wait(1);
         $I->acceptPopup();
     }
 }

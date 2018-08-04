@@ -26,17 +26,19 @@ class UserBookTicketCest
      */
     public function register(RegisterStep $I)
     {
+		$I->wantTo('Register new account');
         $I->register($this->randomUsername, $this->randomEmail, $this->randomPhoneNumber, $this->randomIdCustomer, $this->randomAddress, $this->randomPassword, $this->randomConfirmPassword);
     }
-    /**
-     * @param AcceptanceTester $I
-     * @param $sencerio
-     */
+	/**
+	 * @param AcceptanceTester $I
+	 * @param $scenario
+	 */
     public function UserBookTicket(AcceptanceTester $I, $scenario)
     {
         $I = new UserLoginStep($scenario);
         $I->Login($this->randomEmail, $this->randomPassword);
         $I = new UserBookTicketStep($scenario);
-        $I->BookTicketAndCheckCart('CodeRoute397', $this->randomNumberOfTickets);
+        $I->wantTo('Book tickets');
+        $I->BookTicketAndCheckCart('SAIGON-DAKLAK', $this->randomNumberOfTickets);
     }
 }
