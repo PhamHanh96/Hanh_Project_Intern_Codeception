@@ -53,4 +53,19 @@ https://imgur.com/cPMXkRB
 ## Note:
 - git reset --hard (xóa tất cả những gì mình đã thay đổi)
 - Luôn luôn đứng ở nhánh dev để chạy composer install/update, sau đó checkout ra nhánh của task mới nhận rồi làm việc
-
+## Các bước để check task của backend khi đc assign: ví dụ check task của Bảo https://github.com/redCOMPONENT-COM/redSHOP/pull/4384/files, luôn chuyển sang trạng thái `in QA` khi bắt đầu check task
+- Mở task lên, copy REDSHOP-5144
+- Mở https://redweb.atlassian.net/browse/REDSHOP-5144, paste REDSHOP-5144 vào đuôi
+- Re-assigne
+- Quay trở lại https://github.com/redCOMPONENT-COM/redSHOP/pull/4384/files, click vào insights/Forks/Bao
+- Tìm kiếm theo tên của Bảo, lấy link github https://github.com/NguyenBao10/redSHOP.git
+- git remote add bao https://github.com/NguyenBao10/redSHOP.git
+- git remote -v
+- git fetch bao
+- git checkout -b REDSHOP-5144 bao/REDSHOP-5144
+- git branch
+- Check xem code mình lấy về đã có thay đổi như bên nhánh của Bảo chưa
+- gup release -> cài lại redSHOP với phiên bản vừa được tạo ra sau khi gup
+- Tiến hành check
+- Nếu pass -> Resolve Issue
+- Nếu fail -> Reopend task
