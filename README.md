@@ -65,7 +65,15 @@ https://imgur.com/cPMXkRB
 - git checkout -b REDSHOP-5144 bao/REDSHOP-5144
 - git branch
 - Check xem code mình lấy về đã có thay đổi như bên nhánh của Bảo chưa
-- gulp release -> cài lại redSHOP với phiên bản vừa được tạo ra sau khi gup
+- gulp release -> cài lại redSHOP với phiên bản vừa được tạo ra sau khi gulp nằm ở thử mục redSHOP\releases
 - Tiến hành check
 - Nếu pass -> Resolve Issue
 - Nếu fail -> Reopend task
+## Nếu check again lại 1 task: ví dụ check lại tast
+- git checkout develop
+- git fetch bao
+- git checkout REDSHOP-5144
+- git pull
+- Check code xem đã lấy về đúng chưa
+- gulp release -> cài lại redSHOP
+- Tiến hành check lại
