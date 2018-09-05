@@ -69,7 +69,7 @@ https://imgur.com/cPMXkRB
 - Tiến hành check
 - Nếu pass -> Resolve Issue
 - Nếu fail -> Reopend task
-## Nếu check again lại 1 task: ví dụ check lại tast
+## Nếu check again 1 task: ví dụ check lại task REDSHOP-5144 của Bảo
 - git checkout develop
 - git fetch bao
 - git checkout REDSHOP-5144
