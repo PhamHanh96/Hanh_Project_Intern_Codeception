@@ -39,7 +39,7 @@ https://imgur.com/cPMXkRB
 - git remote -v (kiểm tra các nhánh)
 - git remote add upstream https://github.com/redCOMPONENT-COM/redSHOP.git (đường dẫn github của công ty)
 - git remote -v (kiểm tra lại cho chắc)
-- git featch upstream
+- git fetch upstream
 ### Sau khi nhận task mới:
 - git pull upstream develop (đồng bộ code của công ty)
 - git merge upstream/develop (merge vào nhánh dev của công ty)
