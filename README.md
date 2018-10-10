@@ -77,3 +77,7 @@ https://imgur.com/cPMXkRB
 - Check code xem đã lấy về đúng chưa
 - gulp release -> cài lại redSHOP
 - Tiến hành check lại
+## Đối với Aeser-e-commerce: các bước tương tự như REDSHOP
+- Trước khi gulp nhớ phải: cd build
+- npm install --save-dev (Cho chắc)
+- node_modules/.bin/gulp release --skip-version
