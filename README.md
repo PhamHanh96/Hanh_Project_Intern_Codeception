@@ -81,7 +81,8 @@ https://imgur.com/cPMXkRB
 - Trước khi gulp nhớ phải: cd build
 - npm install --save-dev (Cho chắc)
 - node_modules/.bin/gulp release --skip-version
-hoặc node_modules/.bin/gulp release
+  hoặc node_modules/.bin/gulp release
+  hoặc sudo gulp release
 ## Cách intall 1 site mới
 - Giải nén file joomla.zip vào folder mình muốn tạo cho site mới.\
 - Đổi dữ liệu trong file codeception.suite.yml : user, pass, url, name database, database host: "localhost"
