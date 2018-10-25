@@ -40,6 +40,8 @@ https://imgur.com/cPMXkRB
 - git remote add upstream https://github.com/redCOMPONENT-COM/redSHOP.git (đường dẫn github của công ty)
 - git remote -v (kiểm tra lại cho chắc)
 - git fetch upstream
+- đổi tên remote:    $ git remote rename old_name new_name
+- xóa tên remote:   $ git remote rm remote_name
 ### Sau khi nhận task mới:
 - git pull upstream develop (đồng bộ code của công ty)
 - git merge upstream/develop (merge vào nhánh dev của công ty)
