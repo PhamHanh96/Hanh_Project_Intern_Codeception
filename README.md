@@ -42,6 +42,7 @@ https://imgur.com/cPMXkRB
 - git fetch upstream
 - đổi tên remote:    $ git remote rename old_name new_name
 - xóa tên remote:   $ git remote rm remote_name
+- xóa branch: $ git branch -D branch_name
 ### Sau khi nhận task mới:
 - git pull upstream develop (đồng bộ code của công ty)
 - git merge upstream/develop (merge vào nhánh dev của công ty)
