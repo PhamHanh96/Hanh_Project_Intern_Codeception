@@ -43,6 +43,7 @@ https://imgur.com/cPMXkRB
 - đổi tên remote:    $ git remote rename old_name new_name
 - xóa tên remote:   $ git remote rm remote_name
 - xóa branch: $ git branch -D branch_name
+- khi người khác tác động vào code của mình, mình phải fetch chính branch của mình rồi mới pull cái mới nhất được
 ### Sau khi nhận task mới:
 - git pull upstream develop (đồng bộ code của công ty)
 - git merge upstream/develop (merge vào nhánh dev của công ty)
