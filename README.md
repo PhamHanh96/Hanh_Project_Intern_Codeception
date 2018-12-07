@@ -1,10 +1,7 @@
 # Hanh_Project_Intern_Codeception
 
-This is My Project Intern
+This is My Project Intern about test automation for website "book ticket online"
 
-My Project Intern
-
-This is my project intern codeception.
 
 ## Workflow:
 - Step1: Admin Login.
