@@ -21,7 +21,7 @@ This is My Project Intern about test automation for website "book ticket online"
 - Register, Login & Logout
 - Edit information $ View information
 - Book ticket
-- View car
+- View cart
 ## Video Walkthrough:
 https://imgur.com/a/48Vab16
 (Demo Codeception)
