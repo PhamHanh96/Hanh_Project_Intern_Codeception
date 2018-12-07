@@ -4,65 +4,176 @@ use Page\Admin\BusPage as BusPage;
 
 class BusStep extends \AcceptanceTester
 {
-	/**
-	 * @param $licensePlates
-	 * @param $seats
-	 * @throws \Exception
-	 */
-    public function addBus($licensePlates, $seats)
-    {
-        $I = $this;
-        $I->wantTo('Creat new Bus');
-        $I->amOnPage(BusPage::$URL);
-        $I->click(BusPage::$buttonNew);
-        $I->fillField(BusPage::$licensePlates, $licensePlates);
-        $I->fillField(BusPage::$seats, $seats);
-        $I->click(BusPage::$buttonAddNew);
-        $I->see(BusPage::$messageSaveSuccess);
-    }
     /**
-     * @param $licensePlates
+     * @param $user
+     * @param $pass
+     * @param $bangSoXe
+     * @param $soCho
      */
-    public function searchBus($licensePlates)
+    public function addBusWithDataTrue($user, $pass, $bangSoXe, $soCho)
     {
         $I = $this;
-        $I->wantTo('Search Bus!');
-        $I->fillField(BusPage::$buttonSearch, $licensePlates);
+        $I->amOnPage(BusPage::$urlAdmin);
+        $I->fillField(BusPage::$username, $user);
+        $I->fillField(BusPage::$password, $pass);
+        $I->click(BusPage::$loginButton);
+        $I->amOnPage(BusPage::$urlBus);
+        $I->click(BusPage::$newButton);
+        $I->fillField(BusPage::$licensePlates, $bangSoXe);
+        $I->fillField(BusPage::$seats, $soCho);
+        $I->click(BusPage::$addButton);
+        $I->wait(1);
+        $I->see(BusPage::$messageAddSuccess);
     }
-	/**
-	 * @param $licensePlates
-	 * @param $seats
-	 * @throws \Exception
-	 */
-    public function editBus($licensePlates, $seats)
-    {
-        $I = $this;
-        $I->wantTo('Edit this Bus');
-        $I->amOnPage(BusPage::$URL);
-        $I->searchBus($licensePlates);
-        $I->click(BusPage::$iconEdit);
-        $I->fillField(BusPage::$seats, $seats);
-        $I->click(BusPage::$buttonAddNew);
-        $I->see(BusPage::$messageSaveSuccess1);
-    }
+
     /**
-     * @param $licensePlates
+     * @param $user
+     * @param $pass
+     */
+    public function addBusWithMissingData($user, $pass)
+    {
+        $I = $this;
+        $I->amOnPage(BusPage::$urlAdmin);
+        $I->fillField(BusPage::$username, $user);
+        $I->fillField(BusPage::$password, $pass);
+        $I->click(BusPage::$loginButton);
+        $I->amOnPage(BusPage::$urlBus);
+        $I->click(BusPage::$newButton);
+        $I->click(BusPage::$addButton);
+        $I->wait(1);
+        $I->see(BusPage::$messageMissingData);
+    }
+
+    /**
+     * @param $user
+     * @param $pass
+     * @param $bangSoXe
+     * @param $soCho
+     */
+    public function addBusWithDataDuplicate($user, $pass, $bangSoXe, $soCho)
+    {
+        $I = $this;
+        $I->amOnPage(BusPage::$urlAdmin);
+        $I->fillField(BusPage::$username, $user);
+        $I->fillField(BusPage::$password, $pass);
+        $I->click(BusPage::$loginButton);
+        $I->amOnPage(BusPage::$urlBus);
+        $I->click(BusPage::$newButton);
+        $I->fillField(BusPage::$licensePlates, $bangSoXe);
+        $I->fillField(BusPage::$seats, $soCho);
+        $I->click(BusPage::$addButton);
+        $I->wait(1);
+        $I->see(BusPage::$messageDuplicateLicensePlates);
+    }
+
+    /**
+     * @param $user
+     * @param $pass
+     * @param $bangSoXe
+     */
+    public function addBusWithMissingLicensePlates($user, $pass, $bangSoXe)
+    {
+        $I = $this;
+        $I->amOnPage(BusPage::$urlAdmin);
+        $I->fillField(BusPage::$username, $user);
+        $I->fillField(BusPage::$password, $pass);
+        $I->click(BusPage::$loginButton);
+        $I->amOnPage(BusPage::$urlBus);
+        $I->click(BusPage::$newButton);
+        $I->fillField(BusPage::$seats, $bangSoXe);
+        $I->click(BusPage::$addButton);
+        $I->wait(1);
+        $I->see(BusPage::$messageMissingLicensePlates);
+    }
+
+    /**
+     * @param $user
+     * @param $pass
+     * @param $bangSoXe
+     */
+    public function searchFail($user, $pass, $bangSoXe)
+    {
+        $I = $this;
+        $I->amOnPage(BusPage::$urlAdmin);
+        $I->fillField(BusPage::$username, $user);
+        $I->fillField(BusPage::$password, $pass);
+        $I->click(BusPage::$loginButton);
+        $I->amOnPage(BusPage::$urlBus);
+        $I->fillField(BusPage::$searchButton, $bangSoXe);
+        $I->wait(1);
+        $I->see(BusPage::$messageSearch);
+    }
+
+    /**
+     * @param $user
+     * @param $pass
+     * @param $bangSoXe
+     */
+    public function searchTrue($user, $pass, $bangSoXe)
+    {
+        $I = $this;
+        $I->amOnPage(BusPage::$urlAdmin);
+        $I->fillField(BusPage::$username, $user);
+        $I->fillField(BusPage::$password, $pass);
+        $I->click(BusPage::$loginButton);
+        $I->amOnPage(BusPage::$urlBus);
+        $I->fillField(BusPage::$searchButton, $bangSoXe);
+        $I->wait(1);
+    }
+
+    /**
+     * @param $user
+     * @param $pass
+     * @param $bangSoXe
+     * @param $bangSoXeSua
+     * @param $soChoSua
      * @throws \Exception
      */
-    public function deleteBus($licensePlates)
+    public function editBusVerifyData($user, $pass, $bangSoXe, $bangSoXeSua, $soChoSua)
     {
         $I = $this;
-        $I->amOnPage(BusPage::$URL);
-        $I->searchBus($licensePlates);
-        $I->click(BusPage::$iconDelete);
-        //$I->see(BusPage::$messageDelete);
-        //$I->wantTo('Test with delete bus but then cancel');
-        //$I->click(BusPage::$buttonCancel);
-        //$I->waitForElement(BusPage::$iconDelete);
-        //$I->click(BusPage::$iconDelete);
-        //$I->wantTo('Test with delete bus then accept');
-		$I->waitForElement(BusPage::$buttonContinue);
-        $I->click(BusPage::$buttonContinue);
-        $I->acceptPopup();
+        $I->searchTrue($user, $pass, $bangSoXe);
+        $I->wait(1);
+        $I->click(BusPage::$editIcon);
+        $I->waitForElement(BusPage::$licensePlates, 30);
+        $I->fillField(BusPage::$licensePlates, $bangSoXeSua);
+        $I->fillField(BusPage::$seats, $soChoSua);
+        $I->click(BusPage::$updateButton);
+        $I->wait(1);
+        $I->see(BusPage::$messageUpdateSuccess);
+    }
+
+    /**
+     * @param $user
+     * @param $pass
+     * @param $bangSoXe
+     * @throws \Exception
+     */
+    public function deleteCancel($user, $pass, $bangSoXe)
+    {
+        $I = $this;
+        $I->searchTrue($user, $pass, $bangSoXe);
+        $I->waitForElement(BusPage::$deleteIcon, 30);
+        $I->click(BusPage::$deleteIcon);
+        $I->wait(1);
+        $I->click(BusPage::$cancelButton);
+        $I->see('Xe Khách');
+    }
+
+    /**
+     * @param $user
+     * @param $pass
+     * @param $bangSoXe
+     * @throws \Exception
+     */
+    public function deleteOK($user, $pass, $bangSoXe)
+    {
+        $I = $this;
+        $I->searchTrue($user, $pass, $bangSoXe);
+        $I->waitForElement(BusPage::$deleteIcon, 30);
+        $I->click(BusPage::$deleteIcon);
+        $I->wait(1);
+        $I->click(BusPage::$continueButton);
+        $I->wait(1);
     }
 }

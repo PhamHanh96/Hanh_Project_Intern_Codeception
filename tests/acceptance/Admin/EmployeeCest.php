@@ -1,63 +1,104 @@
 <?php
 use Step\Acceptance\Admin\EmployeeStep as EmployeeStep;
-use Step\Acceptance\Admin\AdminLoginStep as AdminLoginStep;
+use Page\Admin\EmployeePage as EmployeePage;
 class EmployeeCest
 {
     /**
-     * EmployeeCest constructor.
+     * @param EmployeeStep $I
      * @throws Exception
      */
-    public function __construct()
+    public function themNVDuLieuDung(EmployeeStep $I)
     {
-        $this->faker                    = Faker\Factory::create();
-        $this->username                 = 'nguyentrang0912@gmail.com';
-        $this->password                 = '123';
-        $this->randomUsername           = $this->faker->bothify('???????????');
-        $this->randomEmail              = $this->faker->bothify('???????????@gmail.com');
-        $this->randomPhoneNumber        = $this->faker->bothify('01#########');
-        $this->randomIdEmployee         = random_int(100000000,999999999);
-        $this->randomAddress            = $this->faker->address;
-        $this->randomPassword           = '123';
-        $this->randomConfirmPassword    = '123';
-        $this->randomPosition           = 'GIÁM ĐỐC';
+        $I->wantTo('Thêm nhân viên với dữ liệu đúng.');
+        $I->addEmployeeWithDataTrue(EmployeePage::$usernameTrue, EmployeePage::$passwordTrue, EmployeePage::$emailNV, EmployeePage::$tenNV, EmployeePage::$sdtNV, EmployeePage::$cmndNV, EmployeePage::$diaChiNV, EmployeePage::$matKhau, EmployeePage::$xacNhanMK);
     }
+
     /**
-     * @param AdminLoginStep $I
-     */
-    public function _before(AdminLoginStep $I)
-    {
-        $I->loginAccount($this->username, $this->password);
-    }
-    /**
-     * @param AcceptanceTester $I
-     * @param $scenario
+     * @param EmployeeStep $I
      * @throws Exception
      */
-    public function addEmployee(AcceptanceTester $I, $scenario)
+    public function themNVThieuEmail(EmployeeStep $I)
     {
-        $I = new EmployeeStep($scenario);
-        $I->wantTo('Add new employee!');
-        $I->addEmployee($this->randomEmail, $this->randomUsername, $this->randomPhoneNumber, $this->randomIdEmployee, $this->randomAddress, $this->randomPassword, $this->randomConfirmPassword );
+        $I->wantTo('Thêm nhân viên với bỏ trống Email.');
+        $I->addEmployeeWithMissingEmail(EmployeePage::$usernameTrue, EmployeePage::$passwordTrue, EmployeePage::$tenNV, EmployeePage::$sdtNV, EmployeePage::$cmndNV, EmployeePage::$diaChiNV, EmployeePage::$matKhau, EmployeePage::$xacNhanMK);
+
     }
+
     /**
-     * @param AcceptanceTester $I
-     * @param $scenario
-     */
-    public function editEmployee(AcceptanceTester $I, $scenario)
-    {
-        $I = new EmployeeStep($scenario);
-        $I->wantTo('Edit this Employee!');
-        $I->ediInformation($this->randomEmail, $this->randomUsername, $this->randomPhoneNumber, $this->randomIdEmployee, $this->randomAddress, $this->randomPassword, $this->randomConfirmPassword);
-    }
-    /**
-     * @param AcceptanceTester $I
-     * @param $scenario
+     * @param EmployeeStep $I
      * @throws Exception
      */
-    public function deleteEmployee(AcceptanceTester $I, $scenario)
+    public function themNVEmailTrung(EmployeeStep $I)
     {
-        $I = new EmployeeStep($scenario);
-        $I->wantTo('Delete this Employee!');
-        $I->deleteEmployee($this->randomEmail);
+        $I->wantTo('Thêm nhân viên với Email bị trùng.');
+        $I->addEmployeeWithDuplicateEmail(EmployeePage::$usernameTrue, EmployeePage::$passwordTrue, EmployeePage::$emailTrungNV, EmployeePage::$tenNV, EmployeePage::$sdtNV, EmployeePage::$cmndNV, EmployeePage::$diaChiNV, EmployeePage::$matKhau, EmployeePage::$xacNhanMK);
+    }
+
+    /**
+     * @param EmployeeStep $I
+     */
+    public function timKiemNVFail(EmployeeStep $I)
+    {
+        $I->wantTo('Tìm kiếm nhân viên với dữ liệu sai');
+        $I->searchFail(EmployeePage::$usernameTrue, EmployeePage::$passwordTrue, EmployeePage::$emailSai);
+    }
+
+    /**
+     * @param EmployeeStep $I
+     */
+    public function timKiemNVTrue(EmployeeStep $I)
+    {
+        $I->wantTo('Tìm kiếm nhân viên với dữ liệu đúng');
+        $I->searchTrue(EmployeePage::$usernameTrue, EmployeePage::$passwordTrue, EmployeePage::$emailNV);
+    }
+
+    /**
+     * @param EmployeeStep $I
+     * @throws Exception
+     */
+    public function suaNVDuLieuDung(EmployeeStep $I)
+    {
+        $I->wantTo('Sửa nhân viên với dữ liệu đúng.');
+        $I->editEmployeeWithDataTrue(EmployeePage::$usernameTrue, EmployeePage::$passwordTrue, EmployeePage::$emailNV, EmployeePage::$tenNVSua, EmployeePage::$sdtNVSua, EmployeePage::$cmndNVSua, EmployeePage::$diaChiNVSua, EmployeePage::$matKhau, EmployeePage::$xacNhanMK);
+    }
+
+    /**
+     * @param EmployeeStep $I
+     * @throws Exception
+     */
+    public function suaNVThieuSdt(EmployeeStep $I)
+    {
+        $I->wantTo('Sửa nhân viên với thiếu số điện thoại.');
+        $I->editEmployeeMisingPhone(EmployeePage::$usernameTrue, EmployeePage::$passwordTrue, EmployeePage::$emailNV, EmployeePage::$tenNVSua, '', EmployeePage::$cmndNVSua, EmployeePage::$diaChiNVSua, EmployeePage::$matKhau, EmployeePage::$xacNhanMK);
+    }
+
+    /**
+     * @param EmployeeStep $I
+     * @throws Exception
+     */
+    public function suaNVThieuCmnd(EmployeeStep $I)
+    {
+        $I->wantTo('Sửa nhân viên với thiếu chứng minh nhân dân.');
+        $I->editEmployeeMissingIdentifyCard(EmployeePage::$usernameTrue, EmployeePage::$passwordTrue, EmployeePage::$emailNV, EmployeePage::$tenNVSua, EmployeePage::$sdtNVSua,'', EmployeePage::$diaChiNVSua, EmployeePage::$matKhau, EmployeePage::$xacNhanMK);
+    }
+
+    /**
+     * @param EmployeeStep $I
+     * @throws Exception
+     */
+    public function xoaCancel(EmployeeStep $I)
+    {
+        $I->wantTo('Xóa nhân viên với Cancel');
+        $I->deleteCancel(EmployeePage::$usernameTrue, EmployeePage::$passwordTrue, EmployeePage::$emailNV);
+    }
+
+    /**
+     * @param EmployeeStep $I
+     * @throws Exception
+     */
+    public function xoaOK(EmployeeStep $I)
+    {
+        $I->wantTo('Xóa nhân viên với OK');
+        $I->deleteOK(EmployeePage::$usernameTrue, EmployeePage::$passwordTrue, EmployeePage::$emailNV);
     }
 }

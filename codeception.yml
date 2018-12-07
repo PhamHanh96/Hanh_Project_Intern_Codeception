@@ -8,3 +8,17 @@ actor_suffix: Tester
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
+reporters:
+    xml: Codeception\PHPUnit\Log\JUnit
+    html: Codeception\PHPUnit\ResultPrinter\HTML
+    report: Codeception\PHPUnit\ResultPrinter\Report
+coverage:
+    enabled: true
+    include:
+    - app/*
+    exclude:
+    - app/cache/*
+    low_limit: 30
+    high_limit: 60
+    show_uncovered: false
+    show_only_summary: false

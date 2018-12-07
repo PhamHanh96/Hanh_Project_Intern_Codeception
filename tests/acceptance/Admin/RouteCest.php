@@ -1,53 +1,95 @@
 <?php
 use Step\Acceptance\Admin\RouteStep as RouteStep;
-use Step\Acceptance\Admin\AdminLoginStep as AdminLoginStep;
+use Page\Admin\RoutePage as RoutePage;
 class RouteCest
 {
-    /**
-     * TuyenDuongCest constructor.
-     */
-    public function __construct()
-    {
-       $this->faker               = Faker\Factory::create();
-       $this->username            = 'nguyentrang0912@gmail.com';
-       $this->password            = '123';
-       $this->randomCodeRoute     = $this->faker->bothify('CodeRoute#?#?');
-       $this->randomWhereTo       = $this->faker->bothify('WhereTo#?#?');
-       $this->randomWhereStart    = $this->faker->bothify('WhereStart#?#?');
-       $this->randomLength        = rand(50,9999);
-       $this->randomTime          = $this->faker->time($format = 'H:i:s', $max = 'now');
-       $this->randomPrice         = rand(30000,1000000);
-    }
-    /**
-     * @param AdminLoginStep $I
-     */
-    public function _before(AdminLoginStep $I)
-    {
-        $I->loginAccount($this->username, $this->password);
-    }
-    /**
-     * @param RouteStep $I
-     */
-    public function createRoute(routeStep $I)
-    {
-    	$I->wantTo('Add new Route');
-        $I->addRoute( $this->randomCodeRoute, $this->randomWhereTo, $this->randomWhereStart, $this->randomLength, $this->randomTime, $this->randomPrice);
-    }
-	/**
-	 * @param RouteStep $I
-	 */
-    public function editRoute(routeStep $I)
-    {
-		$I->wantTo('Edit this Route');
-        $I->editRoute( $this->randomCodeRoute,$this->randomWhereTo, $this->randomWhereStart, $this->randomLength,$this->randomTime, $this->randomPrice);
-    }
     /**
      * @param RouteStep $I
      * @throws Exception
      */
-    public function deleteRoute(routeStep $I)
+    public function themTuyenDuongDLDung(RouteStep $I)
     {
-        $I->wantTo('Delete this Route!');
-        $I->deleteRoute($this->randomCodeRoute);
+        $I->wantTo('Thêm tuyến đường với dữ liệu đúng');
+        $I->addRouteWithDataTrue(RoutePage::$usernameTrue, RoutePage::$passwordTrue, RoutePage::$maTuyenDuong, RoutePage::$benDi, RoutePage::$benDen, RoutePage::$quangDuong, RoutePage::$thoiGian, RoutePage::$giaVe);
+    }
+
+    /**
+     * @param RouteStep $I
+     * @throws Exception
+     */
+    public function themTuyenDuongThieuMaTuyenDuong(RouteStep $I)
+    {
+        $I->wantTo('Thêm tuyến đường với bỏ trống mã tuyến đường');
+        $I->addRouteWithMissingCodeRoute(RoutePage::$usernameTrue, RoutePage::$passwordTrue, '', RoutePage::$benDi, RoutePage::$benDen, RoutePage::$quangDuong, RoutePage::$thoiGian, RoutePage::$giaVe);
+    }
+
+    /**
+     * @param RouteStep $I
+     * @throws Exception
+     */
+    public function themTuyenDuongThieuQuangDuong(RouteStep $I)
+    {
+        $I->wantTo('Thêm tuyến đường với bỏ trống quãng đường');
+        $I->addRouteWithMissingLength(RoutePage::$usernameTrue, RoutePage::$passwordTrue, RoutePage::$maTuyenDuong, RoutePage::$benDi, RoutePage::$benDen, '', RoutePage::$thoiGian, RoutePage::$giaVe);
+    }
+
+    /**
+     * @param RouteStep $I
+     * @throws Exception
+     */
+    public function timKiemTuyenDuongSai(RouteStep $I)
+    {
+        $I->wantTo('Tìm kiếm tuyến đường với dữ liệu sai');
+        $I->searchFail(RoutePage::$usernameTrue, RoutePage::$passwordTrue, RoutePage::$maTuyenDuongSai);
+    }
+
+    /**
+     * @param RouteStep $I
+     * @throws Exception
+     */
+    public function timKiemTuyenDuongDung(RouteStep $I)
+    {
+        $I->wantTo('Tìm kiếm tuyến đường với dữ liệu sai');
+        $I->searchTrue(RoutePage::$usernameTrue, RoutePage::$passwordTrue, RoutePage::$maTuyenDuong);
+    }
+
+    /**
+     * @param RouteStep $I
+     * @throws Exception
+     */
+    public function suaTuyenDuongDLDung(RouteStep $I)
+    {
+        $I->wantTo('Sửa tuyến đường với dữ liệu đúng');
+        $I->editRouteWithDataTrue(RoutePage::$usernameTrue, RoutePage::$passwordTrue, RoutePage::$maTuyenDuong, RoutePage::$benDi, RoutePage::$benDen, RoutePage::$quangDuong, RoutePage::$thoiGian, RoutePage::$giaVe);
+    }
+
+    /**
+     * @param RouteStep $I
+     * @throws Exception
+     */
+    public function suaTuyenDuongThieuThoiGian(RouteStep $I)
+    {
+        $I->wantTo('Sửa tuyến đường với thiếu thời gian');
+        $I->editRouteWithMissingTime(RoutePage::$usernameTrue, RoutePage::$passwordTrue, RoutePage::$maTuyenDuong, RoutePage::$benDi, RoutePage::$benDen, RoutePage::$quangDuong, '', RoutePage::$giaVe);
+    }
+
+    /**
+     * @param RouteStep $I
+     * @throws Exception
+     */
+    public function xoaTuyenDuongCancel(RouteStep $I)
+    {
+        $I->wantTo('Xóa tuyến đường với Cancel');
+        $I->deleteCancel(RoutePage::$usernameTrue, RoutePage::$passwordTrue, RoutePage::$maTuyenDuong);
+    }
+
+    /**
+     * @param RouteStep $I
+     * @throws Exception
+     */
+    public function xoaTuyenDuongOK(RouteStep $I)
+    {
+        $I->wantTo('Xóa tuyến đường với OK');
+        $I->deleteOK(RoutePage::$usernameTrue, RoutePage::$passwordTrue, RoutePage::$maTuyenDuong);
     }
 }

@@ -1,52 +1,88 @@
 <?php
 use Step\Acceptance\Admin\BusStep as BusStep;
-use Step\Acceptance\Admin\AdminLoginStep as AdminLoginStep;
+use Page\admin\BusPage as BusPage;
 class BusCest
 {
     /**
-     * BusCest constructor.
+     * @param BusStep $I
      */
-    public function __construct()
+    public function themXeKhachDuLieuDung(BusStep $I)
     {
-        $this->faker                = Faker\Factory::create();
-        $this->username             = 'nguyentrang0912@gmail.com';
-        $this->password             = '123';
-        $this->randomLicensePlates  = $this->faker->bothify('##?-####');
-        $this->randomSeats          = rand(16,60);
+        $I->wantTo('Thêm xe khách với dữ liệu đúng');
+        $I->addBusWithDataTrue(BusPage::$usernameTrue, BusPage::$passwordTrue, BusPage::$bangSoXe, BusPage::$soCho);
+    }
+
+    /**
+     * @param BusStep $I
+     */
+    public function themXeKhachBoTrongDuLieu(BusStep $I)
+    {
+        $I->wantTo('Thêm xe khách với bỏ trống dữ liệu');
+        $I->addBusWithMissingData(BusPage::$usernameTrue, BusPage::$passwordTrue);
+    }
+
+    /**
+     * @param BusStep $I
+     */
+    public function themXeKhachDuLieuTrung(BusStep $I)
+    {
+        $I->wantTo('Thêm xe khách với bảng số xe bị trùng');
+        $I->addBusWithDataDuplicate(BusPage::$usernameTrue, BusPage::$passwordTrue, BusPage::$bangSoXe, BusPage::$soCho);
+    }
+
+    /**
+     * @param BusStep $I
+     */
+    public function themXeKhachBoTrongBangSoXe(BusStep $I)
+    {
+        $I->wantTo('Thêm xe khách với dữ bỏ trống bảng số xe');
+        $I->addBusWithMissingLicensePlates(BusPage::$usernameTrue, BusPage::$passwordTrue, BusPage::$soCho);
     }
     /**
-     * @param AdminLoginStep $I
+     * @param BusStep $I
      */
-    public function _before(AdminLoginStep $I)
+    public function timKiemXeFail(BusStep $I)
     {
-        $I->loginAccount($this->username, $this->password);
+        $I->wantTo('Tìm kiếm xe khách với dữ liệu sai');
+        $I->searchFail(BusPage::$usernameTrue, BusPage::$passwordTrue, BusPage::$bangSoXeSai);
     }
-	/**
-	 * @param BusStep $I
-	 * @throws Exception
-	 *
-	 */
-    public function createBus(BusStep $I)
+
+    /**
+     * @param BusStep $I
+     */
+    public function timKiemXeTrue(BusStep $I)
     {
-		$I->wantTo('Add new bus');
-        $I->addBus($this->randomLicensePlates, $this->randomSeats);
+        $I->wantTo('Tìm kiếm xe khách với dữ liệu đúng');
+        $I->searchTrue(BusPage::$usernameTrue, BusPage::$passwordTrue, BusPage::$bangSoXe);
     }
-	/**
-	 * @param BusStep $I
-	 * @throws Exception
-	 */
-    public function editBus(BusStep $I)
-    {
-    	$I->wantTo('Edit this bus');
-        $I->editBus($this->randomLicensePlates,$this->randomSeats);
-    }
+
     /**
      * @param BusStep $I
      * @throws Exception
      */
-    public function deleteBus(BusStep $I)
+    public function suaXeKhachVoiDuLieuDung(BusStep $I)
     {
-        $I->wantTo('Delete this Bus!');
-        $I->deleteBus($this->randomLicensePlates);
+        $I->wantTo('Sửa dữ liệu xe khách với dữ liệu đúng');
+        $I->editBusVerifyData(BusPage::$usernameTrue, BusPage::$passwordTrue, BusPage::$bangSoXe, BusPage::$bangSoXeSua, BusPage::$soChoSua);
+    }
+
+    /**
+     * @param BusStep $I
+     * @throws Exception
+     */
+    public function xoaXeKhachCancel(BusStep $I)
+    {
+        $I->wantTo('Xóa xe khách với Cancel');
+        $I->deleteCancel(BusPage::$usernameTrue, BusPage::$passwordTrue, BusPage::$bangSoXe);
+    }
+
+    /**
+     * @param BusStep $I
+     * @throws Exception
+     */
+    public function xoaXeKhachOK(BusStep $I)
+    {
+        $I->wantTo('Xóa xe khách với OK');
+        $I->deleteOK(BusPage::$usernameTrue, BusPage::$passwordTrue, BusPage::$bangSoXe);
     }
 }

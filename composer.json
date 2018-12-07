@@ -1,11 +1,10 @@
 {
-  "name": "joomla/test-system",
+  "name": "test-system",
   "type": "project",
-  "description": "Joomla CMS system tests using Codeception",
   "keywords": ["joomla", "cms"],
-  "homepage": "https://github.com/joomla/joomla-cms",
+  "homepage": "http://localhost:55656",
   "license": "GPL-2.0+",
-  "config": {
+    "config": {
 	"platform": {
 	  "php": "7.0.0"
 	}
@@ -16,10 +15,10 @@
 	"docs":"https://docs.joomla.org"
   },
   "require": {
-	"php": ">=7.0.0",
-	"codeception/codeception": "2.4.3",
+    "php": ">=7.0.0",
+    "codeception/codeception": "2.4.3",
     "joomla-projects/joomla-browser": "v4.0.0.x-dev",
-	"joomla-projects/selenium-server-standalone": "~v3",
+    "joomla-projects/selenium-server-standalone": "~v3",
     "consolidation/robo": "^1.0.0",
     "fzaninotto/faker": "^1.7",
     "squizlabs/php_codesniffer": "~2",
@@ -27,6 +26,7 @@
     "joomla-projects/joomla-testing": "dev-container-test",
     "cloudinary/cloudinary_php": "^1.7",
     "knplabs/github-api": "~1",
-    "nette/reflection": "~2.4"
+    "nette/reflection": "~2.4",
+    "ext-mysql": "*"
   }
 }

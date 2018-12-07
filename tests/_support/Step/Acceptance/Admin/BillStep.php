@@ -1,38 +1,77 @@
 <?php
 namespace Step\Acceptance\Admin;
 use Page\Admin\BillPage;
-use Step\Acceptance\User\UserBookTicketStep;
 
-class BillStep extends UserBookTicketStep
+class BillStep extends \AcceptanceTester
 {
     /**
-     * @param $codeBill
-     */
-    public function searchBill($codeBill)
-    {
-        $I = $this;
-        $I->wantTo('Search Bill!');
-        $I->fillField(BillPage::$buttonSearch, $codeBill);
-    }
-    /**
+     * @param $user
+     * @param $pass
      * @param $codeBill
      * @throws \Exception
      */
-    public function checkBill($codeBill)
+    public function searchBillWithDataTrue($user, $pass, $codeBill)
     {
         $I = $this;
-        $I->wantTo('Check Bill!');
-        $I->amOnPage(BillPage::$URL);
-        $I->searchBill($codeBill);
-        $I->click(BillPage::$iconCheckBill);
-        $I->wantTo('Test with check bill but then cancel');
-        $I->waitForElementVisible(BillPage::$buttonCancle,30);
-        $I->click(BillPage::$buttonCancle);
-        $I->waitForElement(BillPage::$iconCheckBill);
-        $I->click(BillPage::$iconCheckBill);
-        $I->waitForElementVisible(BillPage::$buttonContinue,30);
-        $I->wantTo('Test with check bill then accept');
-        $I->click(BillPage::$buttonContinue);
-        $I->acceptPopup();
+        $I->amOnPage(BillPage::$urlAdmin);
+        $I->fillField(BillPage::$username, $user);
+        $I->fillField(BillPage::$password, $pass);
+        $I->click(BillPage::$loginButton);
+        $I->amOnPage(BillPage::$urlBill);
+        $I->waitForElement(BillPage::$searchButton, 30);
+        $I->fillField(BillPage::$searchButton, $codeBill);
+    }
+
+    /**
+     * @param $user
+     * @param $pass
+     * @param $codeBill
+     * @throws \Exception
+     */
+    public function searchBillWithDataWrong($user, $pass, $codeBill)
+    {
+        $I = $this;
+        $I->amOnPage(BillPage::$urlAdmin);
+        $I->fillField(BillPage::$username, $user);
+        $I->fillField(BillPage::$password, $pass);
+        $I->click(BillPage::$loginButton);
+        $I->amOnPage(BillPage::$urlBill);
+        $I->waitForElement(BillPage::$searchButton, 30);
+        $I->fillField(BillPage::$searchButton, $codeBill);
+        $I->see(BillPage::$messageSearch);
+    }
+
+    /**
+     * @param $user
+     * @param $pass
+     * @param $codeBill
+     * @throws \Exception
+     */
+    public function checkBillWithCancel($user, $pass, $codeBill)
+    {
+        $I = $this;
+        $I->searchBillWithDataTrue($user, $pass, $codeBill);
+        $I->waitForElement(BillPage::$editIcon, 30);
+        $I->click(BillPage::$editIcon);
+        $I->wait(1);
+        $I->click(BillPage::$cancelButton);
+        $I->see('Hóa đơn');
+    }
+
+    /**
+     * @param $user
+     * @param $pass
+     * @param $codeBill
+     * @throws \Exception
+     */
+    public function checkBillWithOK($user, $pass, $codeBill)
+    {
+        $I = $this;
+        $I->searchBillWithDataTrue($user, $pass, $codeBill);
+        $I->waitForElement(BillPage::$editIcon, 30);
+        $I->click(BillPage::$editIcon);
+        $I->wait(1);
+        $I->click(BillPage::$continueButton);
+        $I->wait(1);
     }
 }

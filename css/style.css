@@ -1,0 +1,95 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.form_center {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    border: 6px solid #a78f8f;
+    padding: 40px;
+}
+
+h1.lbl_baocao {
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: 53px;
+    margin-bottom: 30px;
+}
+
+p.lbl_testcast {
+    font-size: 21px;
+}
+
+label.lbl_input {
+    display: inline-block;
+}
+
+label.lbl_input {
+    display: inline-block;
+    float: left;
+}
+
+.input-testcase {width: 50%;float: right;}
+
+.row.testcase {margin-bottom: 10px;}
+
+.row.function {margin-bottom: 10px;}
+
+.row.project {margin-bottom: 10px;}
+
+.select_testcase {
+    width: 49%;
+}
+
+.select_function {
+    width: 49%;
+}
+
+.select_project {
+    width: 49%;
+}
+
+p.lbl_testcast {
+    width: 19%;
+    margin-left: 188px;
+    margin-top: -5px;
+}
+
+p.lbl_function {
+    width: 19%;
+    margin-left: 188px;
+    margin-top: -5px;
+}
+
+p.lbl_project {
+    width: 19%;
+    margin-left: 188px;
+    margin-top: -5px;
+}
+
+.hienthitestcase {
+    margin: auto;
+    margin-bottom: 25px;
+    width: 67%;
+}
+
+select.c-select {
+    width: 69%;
+    margin-left: -14px;
+    border-radius: 5px;
+    padding: 7px 0px;
+}

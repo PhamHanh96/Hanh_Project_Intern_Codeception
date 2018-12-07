@@ -19,6 +19,7 @@ class UserBookTicketStep extends \AcceptanceTester
         $I->click(UserBookTicketPage::$buttonBuyTicket);
         $I->fillField(UserBookTicketPage::$numberOfTickets, $numberOfTickets);
         $I->click(UserBookTicketPage::$buttonSubmit);
+        //$I->see('Bạn không được chọn nhiều hơn số ghế. Mời bạn nhập lại!');
         $I->see(UserBookTicketPage::$messageSaveSuccess);
         $I->click(UserBookTicketPage::$iconCart);
     }

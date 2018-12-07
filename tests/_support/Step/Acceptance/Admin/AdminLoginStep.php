@@ -8,49 +8,73 @@ class AdminLoginStep extends \AcceptanceTester
      * @param $user
      * @param $pass
      */
-    public function loginAccount($user, $pass)
+    public function loginWithUserTruePassTrue($user, $pass)
     {
+        AdminLoginPage::setProperties();
         $I = $this;
-        $I->wantTo('Login into Admin account');
         $I->amOnPage(AdminLoginPage::$url);
         $I->fillField(AdminLoginPage::$username, $user);
         $I->fillField(AdminLoginPage::$password, $pass);
         $I->click(AdminLoginPage::$loginButton);
     }
+
     /**
-     * @param $name
-     * @param $phone
-     * @param $idAdmin
-     * @param $address
+     * @param $user
      * @param $pass
-     * @param $confirmPass
      */
-    public function editInformation($name, $phone, $idAdmin, $address, $pass, $confirmPass)
+    public function loginWithUserTruePassFail($user, $pass)
     {
+        AdminLoginPage::setProperties();
         $I = $this;
-        $I->wantTo('Edit information this account');
-        $I->click(AdminLoginPage::$iconUser);
-        $I->click(AdminLoginPage::$editInformation);
-        $I->see('Xem thông tin cá nhân ');
-        $I->fillField(AdminLoginPage::$name, $name);
-        $I->fillField(AdminLoginPage::$phone, $phone);
-        $I->fillField(AdminLoginPage::$idAdmin, $idAdmin);
-        $I->fillField(AdminLoginPage::$address, $address);
-        $I->fillField(AdminLoginPage::$pass, $pass);
-        $I->fillField(AdminLoginPage::$confirmPass, $confirmPass);
-        $I->click(AdminLoginPage::$buttonUpdate);
-        $I->see(AdminLoginPage::$messageSuccess);
+        $I->amOnPage(AdminLoginPage::$url);
+        $I->fillField(AdminLoginPage::$username, $user);
+        $I->fillField(AdminLoginPage::$password, $pass);
+        $I->click(AdminLoginPage::$loginButton);
+        $I->see(AdminLoginPage::$messageLogin1);
+    }
+
+    /**
+     * @param $user
+     * @param $pass
+     */
+    public function loginWithUserFailPassTrue($user, $pass)
+    {
+        AdminLoginPage::setProperties();
+        $I = $this;
+        $I->amOnPage(AdminLoginPage::$url);
+        $I->fillField(AdminLoginPage::$username, $user);
+        $I->fillField(AdminLoginPage::$password, $pass);
+        $I->click(AdminLoginPage::$loginButton);
+        $I->see(AdminLoginPage::$messageLogin2);
+    }
+
+    /**
+     * @param $user
+     * @param $pass
+     */
+    public function loginWithUserFailPassFail($user, $pass)
+    {
+        AdminLoginPage::setProperties();
+        $I = $this;
+        $I->amOnPage(AdminLoginPage::$url);
+        $I->fillField(AdminLoginPage::$username, $user);
+        $I->fillField(AdminLoginPage::$password, $pass);
+        $I->click(AdminLoginPage::$loginButton);
+        $I->see(AdminLoginPage::$messageLogin3);
     }
 	/**
 	 * @throws \Exception
 	 */
-    public function logoutAccount()
+    public function logout($user, $pass)
     {
         $I = $this;
-        $I->wantTo('Logout this account');
-        $I->click(AdminLoginPage::$iconUser);
-        $I->waitForElement(AdminLoginPage::$buttonLogout);
-        $I->click(AdminLoginPage::$buttonLogout);
+        $I->amOnPage(AdminLoginPage::$url);
+        $I->fillField(AdminLoginPage::$username, $user);
+        $I->fillField(AdminLoginPage::$password, $pass);
+        $I->click(AdminLoginPage::$loginButton);
+        $I->wait(1);
+        $I->click(AdminLoginPage::$userIcon);
+        $I->waitForElement(AdminLoginPage::$logoutButton);
+        $I->click(AdminLoginPage::$logoutButton);
     }
-
 }

@@ -1,32 +1,47 @@
 <?php
 use Step\Acceptance\Admin\BillStep as BillStep;
-use Step\Acceptance\Admin\AdminLoginStep as AdminLoginStep;
+use Page\Admin\BillPage as BillPage;
 class BillCest
 {
-    /**
-     * BillCest constructor.
-     */
-    public function __construct()
-    {
-        $this->faker               = Faker\Factory::create();
-        $this->username            = 'nguyentrang0912@gmail.com';
-        $this->password            = '123';
-        $this->randomCodeBill      = '3068';
-    }
-    /**
-     * @param AdminLoginStep $I
-     */
-    public function _before(AdminLoginStep $I)
-    {
-        $I->loginAccount($this->username, $this->password);
-    }
     /**
      * @param BillStep $I
      * @throws Exception
      */
-    public function checkBill(BillStep $I)
+    public function timKiemVoiDuLieuDung(BillStep $I)
     {
-    	$I->wantTo('Check bill');
-        $I->checkBill($this->randomCodeBill);
+        $I->wantTo('Tìm kiếm với dữ liệu đúng');
+        $I->searchBillWithDataTrue(BillPage::$usernameTrue, BillPage::$passwordTrue, BillPage::$codeBill);
+    }
+
+    /**
+     * @param BillStep $I
+     * @throws Exception
+     */
+    public function timKiemVoiDuLieuSai(BillStep $I)
+    {
+        $I->wantTo('Tìm kiếm với dữ liệu sai');
+        $I->searchBillWithDataTrue(BillPage::$usernameTrue, BillPage::$passwordTrue, BillPage::$codeBillWrong);
+    }
+
+    /**
+    * @param BillStep $I
+    * @throws Exception
+    */
+    public function duyetDonHangVoiCancel(BillStep $I)
+    {
+        $I->wantTo('Duyệt đơn hàng với Cancel');
+        $I->checkBillWithCancel(BillPage::$usernameTrue, BillPage::$passwordTrue, BillPage::$codeBill);
+
+    }
+
+    /**
+     * @param BillStep $I
+     * @throws Exception
+     */
+    public function duyetDonHangVoiOK(BillStep $I)
+    {
+        $I->wantTo('Duyệt đơn hàng với OK');
+        $I->checkBillWithOK(BillPage::$usernameTrue, BillPage::$passwordTrue, BillPage::$codeBill);
+
     }
 }

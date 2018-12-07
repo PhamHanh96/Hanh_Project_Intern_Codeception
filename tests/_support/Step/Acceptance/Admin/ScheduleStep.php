@@ -5,85 +5,118 @@ use Page\Admin\SchedulePage as SchedulePage;
 class ScheduleStep extends \AcceptanceTester
 {
     /**
+     * @param $user
+     * @param $pass
      * @param $maTuyenDuong
      * @param $bangSoXe
-     * @param $ngayDi
-     * @param $gioChay
+     * @param $ngay
+     * @param $gio
      * @throws \Exception
      */
-    public function addSchedule($codeRoute, $licensePlates, $dayStart, $Time)
+    public function addScheduleDataTrue($user, $pass, $maTuyenDuong, $bangSoXe, $ngay, $gio)
     {
         $I = $this;
-        $I->wantTo('Creat new Schedule');
-        $I->amOnPage(SchedulePage::$url);
-        $I->click(SchedulePage::$buttonNew);
-        $I->waitForElement(SchedulePage::$codeRoute, 30);
-        $I->click(SchedulePage::$codeRoute);
+        $I->amOnPage(SchedulePage::$urlAdmin);
+        $I->fillField(SchedulePage::$username, $user);
+        $I->fillField(SchedulePage::$password, $pass);
+        $I->click(SchedulePage::$loginButton);
+        $I->amOnPage(SchedulePage::$urlSchedule);
+        $I->click(SchedulePage::$newButton);
         $usePage = new SchedulePage();
-        $I->waitForElement($usePage->returnChoice($codeRoute), 30);
-        $I->click($usePage->returnChoice($codeRoute));
-        $I->waitForElement(SchedulePage::$licensePlates, 30);
-        $I->click(SchedulePage::$licensePlates);
+        $I->waitForElement($usePage->returnChoice($maTuyenDuong), 30);
+        $I->click($usePage->returnChoice($maTuyenDuong));
         $usePage = new SchedulePage();
-        $I->waitForElement($usePage->returnChoice($licensePlates));
-        $I->click($usePage->returnChoice($licensePlates));
-        $I->fillField(SchedulePage::$dayStart, $dayStart);
-        $I->click(SchedulePage::$Time);
+        $I->waitForElement($usePage->returnChoice($bangSoXe), 30);
+        $I->click($usePage->returnChoice($bangSoXe));
+        $I->fillField(SchedulePage::$day, $ngay);
         $usePage = new SchedulePage();
-        $I->waitForElement($usePage->returnChoice($Time));
-        $I->click($usePage->returnChoice($Time));
-        $I->waitForElement(SchedulePage::$buttonAddNew);
-        $I->click(SchedulePage::$buttonAddNew);
-        $I->see(SchedulePage::$messageSaveSuccess);
+        $I->waitForElement($usePage->returnChoice($gio), 30);
+        $I->click($usePage->returnChoice($gio));
+        $I->click(SchedulePage::$addButton);
+        $I->wait(1);
+        $I->see(SchedulePage::$messageAddSuccess);
     }
+
     /**
-     * @param $codeRoute
+     * @param $user
+     * @param $pass
+     * @param $maLoTrinh
      */
-    public function searchSchedule($codeRoute)
+    public function searchSchedule($user, $pass, $maLoTrinh)
     {
         $I = $this;
-        $I->wantTo('Search Schedule!');
-        $I->fillField(SchedulePage::$buttonSearch, $codeRoute);
+        $I->amOnPage(SchedulePage::$urlAdmin);
+        $I->fillField(SchedulePage::$username, $user);
+        $I->fillField(SchedulePage::$password, $pass);
+        $I->click(SchedulePage::$loginButton);
+        $I->amOnPage(SchedulePage::$urlSchedule);
+        $I->fillField(SchedulePage::$searchButton, $maLoTrinh);
+        $I->wait(1);
     }
+
     /**
-     * @param $codeRoute
-     * @param $dayStart
-     * @param $Time
+     * @param $user
+     * @param $pass
+     * @param $maLoTrinh
+     * @param $maTuyenDuong
+     * @param $bangSoXe
+     * @param $ngay
+     * @param $gio
      * @throws \Exception
      */
-    public function editSchedule($codeRoute, $dayStart, $Time)
+    public function editSchedule($user, $pass, $maLoTrinh, $maTuyenDuong, $bangSoXe, $ngay, $gio)
     {
         $I = $this;
-        $I->wantTo('Edit Schedule!');
-        $I->amOnPage(SchedulePage::$url);
-        $I->searchSchedule($codeRoute);
-        $I->click(SchedulePage::$iconEdit);
-        $I->fillField(SchedulePage::$dayStart, $dayStart);
-        $I->click(SchedulePage::$Time);
+        $I->searchSchedule($user, $pass, $maLoTrinh);
+        $I->wait(1);
+        $I->click(SchedulePage::$editIcon);
+        $I->wait(1);
         $usePage = new SchedulePage();
-        $I->waitForElement($usePage->returnChoice($Time));
-        $I->click($usePage->returnChoice($Time));
-        $I->click(SchedulePage::$buttonAddNew);
-        $I->see(SchedulePage::$messageSaveSuccess1);
+        $I->waitForElement($usePage->returnChoice($maTuyenDuong), 30);
+        $I->click($usePage->returnChoice($maTuyenDuong));
+        $usePage = new SchedulePage();
+        $I->waitForElement($usePage->returnChoice($bangSoXe), 30);
+        $I->click($usePage->returnChoice($bangSoXe));
+        $I->fillField(SchedulePage::$day, $ngay);
+        $usePage = new SchedulePage();
+        $I->waitForElement($usePage->returnChoice($gio), 30);
+        $I->click($usePage->returnChoice($gio));
+        $I->click(SchedulePage::$updateButton);
+        $I->wait(1);
+        $I->see(SchedulePage::$messageUpdateSuccess);
     }
+
     /**
-     * @param $codeRoute
+     * @param $user
+     * @param $pass
+     * @param $maLoTrinh
      * @throws \Exception
      */
-    public function deleteSchedule($codeRoute)
+    public function deleteScheduleCancel($user, $pass, $maLoTrinh)
     {
         $I = $this;
-        $I->wantTo('Delete Schedule!');
-        $I->amOnPage(SchedulePage::$url);
-        $I->searchSchedule($codeRoute);
-        $I->click(SchedulePage::$iconDelete);
-        $I->wantTo('Test with delete schedule but then cancel');
-        $I->waitForElementVisible(SchedulePage::$buttonCancle,30);
-        $I->click(SchedulePage::$buttonCancle);
-        $I->waitForElement(SchedulePage::$iconDelete);
-        $I->click(SchedulePage::$iconDelete);
-        $I->wantTo('Test with delete schedule then accept');
-        $I->click(SchedulePage::$buttonContinue);
-        $I->acceptPopup();
+        $I->searchSchedule($user, $pass, $maLoTrinh);
+        $I->waitForElement(SchedulePage::$deleteIcon, 30);
+        $I->click(SchedulePage::$deleteIcon);
+        $I->wait(1);
+        $I->click(SchedulePage::$cancelButton);
+        $I->see('Lộ Trình');
+    }
+
+    /**
+     * @param $user
+     * @param $pass
+     * @param $maLoTrinh
+     * @throws \Exception
+     */
+    public function deleteScheduleOK($user, $pass, $maLoTrinh)
+    {
+        $I = $this;
+        $I->searchSchedule($user, $pass, $maLoTrinh);
+        $I->waitForElement(SchedulePage::$deleteIcon, 30);
+        $I->click(SchedulePage::$deleteIcon);
+        $I->wait(1);
+        $I->click(SchedulePage::$continueButton);
+        $I->wait(1);
     }
 }

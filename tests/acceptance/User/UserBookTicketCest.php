@@ -39,6 +39,6 @@ class UserBookTicketCest
         $I->Login($this->randomEmail, $this->randomPassword);
         $I = new UserBookTicketStep($scenario);
         $I->wantTo('Book tickets');
-        $I->BookTicketAndCheckCart('SAIGON-DAKLAK', $this->randomNumberOfTickets);
+        $I->BookTicketAndCheckCart('NHATRANG-SAIGON', $this->randomNumberOfTickets);
     }
 }
