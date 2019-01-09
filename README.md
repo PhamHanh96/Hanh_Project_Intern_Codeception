@@ -56,6 +56,7 @@ https://imgur.com/cPMXkRB
 ## Note:
 - git reset --hard (xóa tất cả những gì mình đã thay đổi)
 - Luôn luôn đứng ở nhánh dev để chạy composer install/update, sau đó checkout ra nhánh của task mới nhận rồi làm việc
+- Có thể sử dụng gulp copy thay cho gulp release, change config trong file gulp-config.json ("wwwDir"        : "C:/xampp/htdocs/aesec-5166")(vd phải có sẵn aesec rồi mới copy PRs của aesec. Khi copy nó sẽ tự động copy toàn bộ PRs hiện tại qua site local của mình, nếu update site thì install sql và php riêng...)
 ## Các bước để check task của backend khi đc assign: ví dụ check task của Bảo https://github.com/redCOMPONENT-COM/redSHOP/pull/4384/files, luôn chuyển sang trạng thái `in QA` khi bắt đầu check task
 - Mở task lên, copy REDSHOP-5144
 - Mở https://redweb.atlassian.net/browse/REDSHOP-5144, paste REDSHOP-5144 vào đuôi
