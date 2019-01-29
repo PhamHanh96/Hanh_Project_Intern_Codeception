@@ -40,6 +40,7 @@ https://imgur.com/cPMXkRB
 - đổi tên remote:    $ git remote rename old_name new_name
 - xóa tên remote:   $ git remote rm remote_name
 - xóa branch: $ git branch -D branch_name
+- xóa file trong commit: $ git rm <file>
 - đổi tên branch: $ git branch -m branch_name_new (Nhớ là đứng tại branch muốn đổi tên)
 - update submodule: $ git submodule init
 - khi người khác tác động vào code của mình, mình phải fetch chính branch của mình rồi mới pull cái mới nhất được
