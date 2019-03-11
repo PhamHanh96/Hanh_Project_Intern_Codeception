@@ -91,3 +91,11 @@ https://imgur.com/cPMXkRB
 - Giải nén file joomla.zip vào folder mình muốn tạo cho site mới.\
 - Đổi dữ liệu trong file codeception.suite.yml : user, pass, url, name database, database host: "localhost"
 - Chạy file tests\acceptance\install\1-InstallJoomlaTestCest.php
+ 
+## Cách chuyển qua nhánh khác mà không cần commit code
+- git stash save
+- git checkout branch A // Checkout and làm việc trên nhánh khác
+- git checkout branch B // checkout lại nhánh đang làm việc
+- git stash pop stash@{0} // Mở lại những file đã save lại
+- git stash clear // Xóa toàn bộ list đã save trong stash
+- git stash list // xem toàn bộ
