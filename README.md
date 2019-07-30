@@ -43,7 +43,7 @@ https://imgur.com/cPMXkRB
 - xóa file trong commit: $ git rm <file>
 - đổi tên branch: $ git branch -m branch_name_new (Nhớ là đứng tại branch muốn đổi tên)
 - update submodule: $ git submodule init
-- loại bỏ file ra khỏi stage (lỡ add): $ git reset HEAD <file>
+- loại bỏ file ra khỏi stage (lỡ add): $ git reset HEAD file_name
 - khi người khác tác động vào code của mình, mình phải fetch chính branch của mình rồi mới pull cái mới nhất được
 ### Sau khi nhận task mới:
 - git pull upstream develop (đồng bộ code của công ty)
