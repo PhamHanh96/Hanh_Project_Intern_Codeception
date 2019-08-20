@@ -100,3 +100,11 @@ https://imgur.com/cPMXkRB
 - git stash pop stash@{0} // Mở lại những file đã save lại
 - git stash clear // Xóa toàn bộ list đã save trong stash
 - git stash list // xem toàn bộ
+
+## Cách setup 1 site client dưới local để check (vd: 3ktools.dk)
+- Clone code của project về htdocs folder
+- Tạo data base 
+- Opend Xampp/Shell terminal
+- mysql -u root -p → Enter → input password (nhấn enter nếu không có password)
+- use 3ktools (it mean 'use "name of database"')
+- 
