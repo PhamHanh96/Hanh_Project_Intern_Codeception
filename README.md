@@ -107,4 +107,9 @@ https://imgur.com/cPMXkRB
 - Opend Xampp/Shell terminal
 - mysql -u root -p → Enter → input password (nhấn enter nếu không có password)
 - use 3ktools (it mean 'use "name of database"')
-- 
+- source C:/xampp/htdocs/3ktools.dk/redgit/sql/3ktools_structure.sql
+- source C:/xampp/htdocs/3ktools.dk/redgit/sql/3ktools_data.sql
+- Copy configuration.onl.phg to configuration.php
+- Change the "user" and "password" of this file for matching with your setup local(user and pass của php).
+
+
