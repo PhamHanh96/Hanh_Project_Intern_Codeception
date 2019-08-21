@@ -111,5 +111,6 @@ https://imgur.com/cPMXkRB
 - source C:/xampp/htdocs/3ktools.dk/redgit/sql/3ktools_data.sql
 - Copy configuration.onl.phg to configuration.php
 - Change the "user" and "password" of this file for matching with your setup local(user and pass của php).
-
+- open the site with correct url . you will get the perfect site on local . (maybe the site will can't run on local because
+public $force_ssl = '2'; and you need to change value to 0  on configuration.php) 
 
