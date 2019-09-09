@@ -114,3 +114,10 @@ https://imgur.com/cPMXkRB
 - open the site with correct url . you will get the perfect site on local . (maybe the site will can't run on local because
 public $force_ssl = '2'; and you need to change value to 0  on configuration.php) 
 
+## Các bước setup 1 site mới để chạy codeception
+- Install via composer: composer require "codeception/codeception" --dev
+- Setup:
+  vendor/bin/codecept bootstrap // This creates configuration file codeception.yml and tests directory and default test suites.
+  vendor/bin/codecept build 
+  vendor/bin/codecept generate:suite api
+
