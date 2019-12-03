@@ -121,3 +121,10 @@ public $force_ssl = '2'; and you need to change value to 0  on configuration.php
   vendor/bin/codecept build 
   vendor/bin/codecept generate:suite api
 
+## Các bước pull code từ 1 unknow repository
+- git fetch upstream refs/pull/6106/head:AESEC-5568
+[trong đó: 6106 là pr_number, AESEC-5568 là tên branch muốn đặt]
+- git checkout AESEC-5568
+[checkout ra nhánh vừa đc tạo, sau đó thực hiện các thao tác bình thường: edit, commit,...]
+- git push origin AESEC-5568
+[push code lên server]
