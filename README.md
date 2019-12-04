@@ -128,3 +128,54 @@ public $force_ssl = '2'; and you need to change value to 0  on configuration.php
 [checkout ra nhánh vừa đc tạo, sau đó thực hiện các thao tác bình thường: edit, commit,...]
 - git push origin AESEC-5568
 [push code lên server]
+
+## CodeceptJS
+0. start with empty project initialize npm first:
+npm init -y
+
+1. Install CodeceptJS with Puppeteer
+npm install codeceptjs puppeteer --save-dev
+
+2. Initialize CodeceptJS in current directory by running:
+npx codeceptjs init
+Answer questions. Agree on defaults, when asked to select helpers choose Puppeteer.
+
+3. Generate step definitions with
+To get autocompletion when working with CodeceptJS
+npx codeceptjs def
+
+4. Create First Test: npx codeceptjs gt
+Create Page Objects: npx codeceptjs gpo
+Create Steps Objects: npx codeceptjs go --type step
+
+5. Run a test:
+To see the step-by-step output of running tests, add the --steps flag:
+npx codeceptjs run --steps
+
+To see a more detailed output add the --debug flag:
+npx codeceptjs run --debug
+
+To see very detailed output informations use the --verbose flag:
+npx codeceptjs run --verbose
+
+A single test file can be executed if you provide a relative path to such a file:
+npx codeceptjs run github_test.js
+### or
+npx codeceptjs run admin/login_test.js
+
+To filter a test by name use the --grep parameter, which will execute all tests with names matching the regex pattern.
+
+To run all tests with the slow word in it:
+npx codeceptjs run --grep "slow"
+
+6. Dependency Injection
+
+All objects described here are injected with Dependency Injection. The similar way it happens in AngularJS framework. If you want an object to be injected in scenario by its name add it to configuration
+
+Now this objects can be retrieved by the name specified in configuration.
+
+Via global inject() call.
+
+Required objects can be obtained via parameters in tests
+
+
